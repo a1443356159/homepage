@@ -7,7 +7,7 @@ tags: ["Flow Matching", "DiT", "Test-Time Compute"]
 image: "/images/looped-flow-matching/teaser_qualitative_efficiency.png"
 page: "/projects/looped-flow-matching"
 paper: "/projects/looped-flow-matching"
-code: "#"
+code: "https://github.com/a1443356159/looped-flow-matching"
 ---
 
 See the [project page](/projects/looped-flow-matching) for the method overview,

@@ -5,6 +5,7 @@ venue: "Manuscript in preparation"
 status: "in-preparation"
 date: 2026-06-15
 paper: "/projects/looped-flow-matching"
+code: "https://github.com/a1443356159/looped-flow-matching"
 ---
 
 A training-free looping framework that improves frozen flow-matching image
