@@ -8,12 +8,6 @@ code: "#"
 demo: "#"
 ---
 
-ToolMind is an embodied-agent pipeline for a tabletop robotic arm workstation.
-RGB-D perception builds a scene representation that a vision-language-action
-planner consumes to decompose natural-language instructions into executable
-motion primitives.
-
-The project covers the full stack: camera calibration and depth fusion,
-object-centric scene graphs, tool-use reasoning with an LLM planner, and
-closed-loop execution on real hardware. The goal is a robust, inspectable
-pipeline rather than a monolithic end-to-end black box.
+An embodied-agent pipeline for a tabletop robotic arm: RGB-D perception builds
+a scene representation, and a vision-language-action planner turns
+natural-language instructions into executable motion primitives.

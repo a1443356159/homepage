@@ -127,14 +127,15 @@ const bibtex = `@misc{yan2026loopedflow,
     <figure class="mt-6">
       <img
         src={img('method_overview.png')}
-        alt="Method overview: RAE flow-matching backbone, timestep-dependent loop gating, and token-selective looping with caching"
+        alt="Method overview: sampling-progress gating, loop layer range, and sparse token loop with cached complement residual"
         class="w-full rounded-lg border border-slate-200"
       />
       <figcaption class="mt-2 text-sm text-slate-500">
-        (a) The frozen RAE flow-matching backbone with an unchanged outer sampler. (b) A
-        timestep-dependent gate replays a middle window of transformer layers with damped
-        hidden-state updates. (c) Token-Selective Loop routes only selected tokens through
-        the replayed layers while cached complement tokens keep the full context.
+        Overview of training-free internal looping. Sampling-Progress Gating determines
+        when looping is active. Dense Token Loop repeats the selected layer range for all
+        tokens, while the optional Sparse Token Loop restricts repetition to selected
+        tokens and reuses a complement residual initialized once. All weights remain
+        frozen, and the outer sampler is unchanged.
       </figcaption>
     </figure>
     <ul class="mt-6 space-y-2 text-slate-700 leading-relaxed list-disc pl-6">

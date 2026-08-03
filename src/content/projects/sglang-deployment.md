@@ -7,11 +7,6 @@ tags: ["LLM Serving", "Systems"]
 code: "#"
 ---
 
-This project documents hands-on work serving large language and multimodal
-models with SGLang. It covers environment setup, weight quantization choices,
-continuous batching and radix-cache configuration, and benchmarking latency /
-throughput trade-offs on modest GPU hardware.
-
-The outcome is a reproducible serving setup plus a set of notes on what
-actually matters for efficient inference in a research-lab setting, where
-GPUs are shared and workloads are bursty.
+Hands-on serving of large language and multimodal models with SGLang:
+quantization, continuous batching, and latency/throughput benchmarking on
+modest GPU hardware.
