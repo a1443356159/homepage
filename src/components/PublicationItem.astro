@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  authors: string;
+  venue: string;
+  links?: {
+    paper?: string;
+    code?: string;
+    arxiv?: string;
+  };
+  bibtex?: string;
+}
+
+const { title, authors, venue, links = {}, bibtex } = Astro.props;
+---
+
+<li class="border-b border-slate-200 pb-4">
+  <h3 class="font-semibold text-slate-900">{title}</h3>
+  <p class="mt-1 text-sm text-slate-600">{authors}</p>
+  <p class="mt-0.5 text-sm text-slate-500 italic">{venue}</p>
+  {(links.paper || links.code || links.arxiv || bibtex) && (
+    <div class="mt-2 flex flex-wrap gap-4 text-sm">
+      {links.paper && <a href={links.paper} class="text-indigo-600 hover:underline">Paper</a>}
+      {links.arxiv && <a href={links.arxiv} class="text-indigo-600 hover:underline">arXiv</a>}
+      {links.code && <a href={links.code} class="text-indigo-600 hover:underline">Code</a>}
+      {bibtex && (
+        <details class="w-full">
+          <summary class="cursor-pointer text-indigo-600 hover:underline">BibTeX</summary>
+          <pre class="mt-2 bg-slate-100 rounded p-3 text-xs overflow-x-auto"><code>{bibtex}</code></pre>
+        </details>
+      )}
+    </div>
+  )}
+</li>

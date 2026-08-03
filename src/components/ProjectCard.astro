@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags?: string[];
+  image?: string;
+  links?: {
+    paper?: string;
+    code?: string;
+    demo?: string;
+  };
+  href?: string;
+}
+
+const { title, description, tags = [], image, links = {}, href } = Astro.props;
+---
+
+<article class="border border-slate-200 rounded-lg p-5 hover:border-indigo-300">
+  {image && (
+    <img src={image} alt={title} class="w-full h-40 object-cover rounded-md mb-4 bg-slate-100" />
+  )}
+  <h3 class="text-lg font-semibold text-slate-900">
+    {href ? <a href={href} class="hover:text-indigo-600">{title}</a> : title}
+  </h3>
+  <p class="mt-2 text-sm text-slate-600 leading-relaxed">{description}</p>
+  {tags.length > 0 && (
+    <ul class="mt-3 flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <li class="text-xs bg-indigo-50 text-indigo-700 rounded-full px-2.5 py-0.5">{tag}</li>
+      ))}
+    </ul>
+  )}
+  {(links.paper || links.code || links.demo) && (
+    <div class="mt-3 flex gap-4 text-sm">
+      {links.paper && <a href={links.paper} class="text-indigo-600 hover:underline">Paper</a>}
+      {links.code && <a href={links.code} class="text-indigo-600 hover:underline">Code</a>}
+      {links.demo && <a href={links.demo} class="text-indigo-600 hover:underline">Demo</a>}
+    </div>
+  )}
+</article>

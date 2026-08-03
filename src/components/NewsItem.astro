@@ -1,0 +1,13 @@
+---
+interface Props {
+  date: string;
+  text: string;
+}
+
+const { date, text } = Astro.props;
+---
+
+<li class="flex gap-4 text-sm">
+  <time class="shrink-0 w-20 text-slate-500 font-medium">{date}</time>
+  <span class="text-slate-700">{text}</span>
+</li>

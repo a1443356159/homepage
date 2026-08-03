@@ -1,0 +1,65 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Yuanyi Yan — undergraduate student at Huazhong University of Science and Technology, working on generative models, flow matching, embodied AI, and AI systems.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+const ogImage = new URL('/favicon.svg', Astro.site ?? Astro.url.origin);
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Yuanyi Yan',
+  url: 'https://yuanyiyan.com',
+  email: 'mailto:yyysaiko@gmail.com',
+  jobTitle: 'Undergraduate Student',
+  affiliation: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Huazhong University of Science and Technology',
+    department: 'School of Computer Science and Technology',
+  },
+  knowsAbout: ['Generative Models', 'Flow Matching', 'Embodied AI', 'AI Systems'],
+  sameAs: ['https://github.com/a1443356159'],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1 mx-auto w-full max-w-4xl px-4 py-10">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

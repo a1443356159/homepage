@@ -1,0 +1,33 @@
+---
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Research', href: '/research' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Publications', href: '/publications' },
+  { label: 'Blog', href: '/blog' },
+];
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+---
+
+<header class="border-b border-slate-200">
+  <nav class="mx-auto max-w-4xl px-4 py-4 flex flex-wrap items-baseline gap-x-6 gap-y-2">
+    <a href="/" class="text-lg font-bold text-slate-900 hover:text-indigo-600 mr-auto">Yuanyi Yan</a>
+    {navItems.map((item) => {
+      const active = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+      return (
+        <a
+          href={item.href}
+          class:list={[
+            'text-sm',
+            active ? 'text-indigo-600 font-semibold' : 'text-slate-600 hover:text-indigo-600',
+          ]}
+        >
+          {item.label}
+        </a>
+      );
+    })}
+    <a href="/cv.pdf" class="text-sm text-slate-600 hover:text-indigo-600 border border-slate-300 rounded px-2 py-0.5">
+      CV
+    </a>
+  </nav>
+</header>

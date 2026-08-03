@@ -1,0 +1,43 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const rendered = await Promise.all(
+  projects.map(async (project) => ({
+    project,
+    Content: (await render(project)).Content,
+  }))
+);
+---
+
+<BaseLayout
+  title="Projects — Yuanyi Yan"
+  description="Selected projects by Yuanyi Yan: generative models, embodied AI agents, and LLM inference systems."
+>
+  <h1 class="text-3xl font-bold text-slate-900">Projects</h1>
+  <p class="mt-3 text-slate-700">
+    Selected research and engineering projects. Links to code and demos are placeholders
+    and will be filled in as repositories go public.
+  </p>
+
+  <div class="mt-8 space-y-8">
+    {rendered.map(({ project, Content }) => (
+      <div>
+        <ProjectCard
+          title={project.data.title}
+          description={project.data.description}
+          tags={project.data.tags}
+          image={project.data.image}
+          links={{ paper: project.data.paper, code: project.data.code, demo: project.data.demo }}
+        />
+        <div class="prose-content mt-4 text-sm">
+          <Content />
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

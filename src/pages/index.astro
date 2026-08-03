@@ -1,0 +1,122 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import NewsItem from '../components/NewsItem.astro';
+
+const featuredProjects = (await getCollection('projects'))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const news = [
+  { date: 'Aug. 2026', text: 'Started building this personal website.' },
+  { date: 'Jul. 2026', text: 'Started the ToolMind embodied-agent project.' },
+  { date: 'Jun. 2026', text: 'Exploring training-free test-time compute for flow matching models.' },
+];
+
+const honors = [
+  { year: '2025', title: 'National Scholarship', org: 'Ministry of Education, China' },
+  { year: '2024', title: 'First-Class Academic Excellence Scholarship', org: 'Huazhong University of Science and Technology' },
+  { year: '2024', title: 'Meritorious Winner, Mathematical Contest in Modeling (MCM/ICM)', org: 'COMAP' },
+];
+---
+
+<BaseLayout title="Yuanyi Yan — Home">
+  <!-- Hero -->
+  <section class="flex flex-col sm:flex-row gap-8 items-start">
+    <div
+      class="shrink-0 w-32 h-32 rounded-full bg-slate-200 flex items-center justify-center text-slate-400 text-sm select-none"
+      aria-label="Profile photo placeholder"
+    >
+      Photo
+    </div>
+    <div>
+      <h1 class="text-3xl font-bold text-slate-900">Yuanyi Yan</h1>
+      <p class="mt-2 text-slate-600">
+        Undergraduate student, School of Computer Science and Technology,<br />
+        Huazhong University of Science and Technology (HUST)
+      </p>
+      <p class="mt-3 text-slate-700">
+        I work on <span class="text-indigo-600 font-medium">generative models</span>,
+        <span class="text-indigo-600 font-medium">flow matching</span>,
+        <span class="text-indigo-600 font-medium">embodied AI</span>, and
+        <span class="text-indigo-600 font-medium">AI systems</span> —
+        recently focusing on training-free test-time compute for flow-matching generators
+        and robotic-arm agent pipelines.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3 text-sm">
+        <a href="https://github.com/a1443356159" target="_blank" rel="noopener"
+           class="border border-slate-300 rounded px-3 py-1.5 text-slate-700 hover:border-indigo-600 hover:text-indigo-600">GitHub</a>
+        <a href="mailto:yyysaiko@gmail.com"
+           class="border border-slate-300 rounded px-3 py-1.5 text-slate-700 hover:border-indigo-600 hover:text-indigo-600">Email</a>
+        <a href="/cv.pdf"
+           class="bg-indigo-600 text-white rounded px-3 py-1.5 hover:bg-indigo-700">CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="mt-14">
+    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">About</h2>
+    <div class="mt-4 space-y-4 text-slate-700 leading-relaxed">
+      <p>
+        I am an undergraduate student at the School of Computer Science and Technology,
+        Huazhong University of Science and Technology. My research centers on generative
+        modeling — in particular flow matching, rectification-enhanced autoencoders (RAE),
+        and Diffusion Transformers — and on training-free methods that make inference
+        faster and better without retraining.
+      </p>
+      <p>
+        On the applied side, I build embodied AI systems: robotic-arm agents that combine
+        RGB-D visual perception with LLM-driven planning, and the inference-serving
+        infrastructure (e.g. SGLang-based deployments) needed to run them. I am broadly
+        interested in HPC and efficient large-model inference, and I enjoy working across
+        the stack from algorithms to systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Research Highlights -->
+  <section class="mt-14">
+    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Research Highlights</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-2">
+      {featuredProjects.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          description={project.data.description}
+          tags={project.data.tags}
+          image={project.data.image}
+          links={{ paper: project.data.paper, code: project.data.code, demo: project.data.demo }}
+        />
+      ))}
+    </div>
+    <p class="mt-4 text-sm">
+      <a href="/projects" class="text-indigo-600 hover:underline">View all projects &rarr;</a>
+    </p>
+  </section>
+
+  <!-- News -->
+  <section class="mt-14">
+    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">News</h2>
+    <ul class="mt-4 space-y-3">
+      {news.map((item) => <NewsItem date={item.date} text={item.text} />)}
+    </ul>
+  </section>
+
+  <!-- Honors -->
+  <section class="mt-14">
+    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Honors &amp; Awards</h2>
+    <ul class="mt-4 space-y-3">
+      {honors.map((h) => (
+        <li class="flex gap-4 text-sm">
+          <span class="shrink-0 w-14 text-slate-500 font-medium">{h.year}</span>
+          <span class="text-slate-700">
+            <span class="font-medium text-slate-900">{h.title}</span>
+            <span class="text-slate-500"> — {h.org}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
