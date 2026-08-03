@@ -3,6 +3,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const img = (name: string) => `/images/looped-flow-matching/${name}`;
 
+const genevalImages = [
+  '02_prompt085.jpg',
+  '03_prompt099.jpg',
+  '07_prompt184.jpg',
+  '10_prompt269.jpg',
+  '11_prompt311.jpg',
+  '13_prompt410.jpg',
+  '14_prompt510.jpg',
+  '15_prompt552.jpg',
+];
+
+const dpgImages = [
+  '01_prompt000.jpg',
+  '02_prompt055.jpg',
+  '03_prompt082.jpg',
+  '04_prompt181.jpg',
+  '05_prompt262.jpg',
+  '07_prompt453.jpg',
+  '09_prompt562.jpg',
+  '10_prompt672.jpg',
+  '12_prompt753.jpg',
+];
+
 const mainResults = [
   {
     model: 'Scale-RAE DiT2.4B',
@@ -34,26 +57,6 @@ const guidanceResults = [
   { model: 'Scale-RAE DiT2.4B', base: '0.4471', guided: '0.5691', baseDpg: '0.7656', guidedDpg: '0.8053' },
   { model: 'Scale-RAE DiT9.8B', base: '0.5321', guided: '0.6432', baseDpg: '0.8003', guidedDpg: '0.8264' },
   { model: 'RAEv2 SigLIP2-B (615M)', base: '0.3829', guided: '0.4532', baseDpg: '0.7131', guidedDpg: '0.7521' },
-];
-
-const comparisons = [
-  {
-    prompt: 'A sloth in an eclectic ensemble parks a graffiti-covered Volkswagen van.',
-    baseline: img('prompt014_baseline.png'),
-    loop: img('prompt014_loop.png'),
-  },
-  {
-    prompt: 'A surreal landscape: downtown Manhattan skyline with Mount Everest and the Great Pyramid of Giza.',
-    baseline: img('prompt024_baseline.png'),
-    loop: img('prompt024_loop.png'),
-  },
-];
-
-const gen2Grids = [
-  { src: img('gen2_few.png'), caption: 'Few-subject prompts: looping helps keep both subjects intact.' },
-  { src: img('gen2_count.png'), caption: 'Counting prompts: object counts stay consistent.' },
-  { src: img('gen2_multi.png'), caption: 'Multi-object prompts: objects stay intact.' },
-  { src: img('gen2_pure.png'), caption: 'Purer subjects with weaker, less distracting backgrounds.' },
 ];
 
 const bibtex = `@misc{yan2026loopedflow,
@@ -106,24 +109,37 @@ const bibtex = `@misc{yan2026loopedflow,
     </figcaption>
   </figure>
 
-  <!-- Abstract -->
+  <!-- Qualitative comparisons -->
   <section class="mt-12">
-    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Abstract</h2>
+    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Qualitative Comparisons</h2>
     <p class="mt-4 text-slate-700 leading-relaxed">
-      We improve frozen flow-matching image generators by adding inference computation
-      inside the denoiser, without changing model weights or the outer sampler. Instead of
-      spending extra test-time computation on more sampling steps — which repeatedly
-      evaluates the entire denoiser — we introduce a training-free looping framework that
-      repeatedly applies selected transformer layers inside each denoising call. Dense and
-      Sparse Token Loop vary the token scope; Sampling-Progress Gating and the loop layer
-      range specify when and where looping is active; loop count and strength control the
-      repeated updates; and Loop Guidance combines ordinary and looped vector-field
-      predictions. Across two Scale-RAE model scales, loop variants improve primary and
-      auxiliary quality metrics with competitive quality-efficiency trade-offs. Loop
-      Guidance further improves both primary metrics across all three tested models; on
-      Scale-RAE DiT2.4B, it raises GenEval from 0.4471 to 0.5691 and DPG-Bench from 0.7656
-      to 0.8053.
+      Matched-prompt samples on Scale-RAE Qwen7B / DiT9.8B (seed 42): w/o Loop vs. Dense
+      Token Loop vs. Loop Guidance.
     </p>
+
+    <h3 class="mt-8 font-semibold text-slate-900">GenEval prompts</h3>
+    <div class="mt-4 space-y-6">
+      {genevalImages.map((name) => (
+        <img
+          src={img(`geneval/${name}`)}
+          alt={`GenEval comparison ${name.replace('.jpg', '')}`}
+          class="w-full rounded-lg border border-slate-200"
+          loading="lazy"
+        />
+      ))}
+    </div>
+
+    <h3 class="mt-10 font-semibold text-slate-900">DPG-Bench prompts</h3>
+    <div class="mt-4 space-y-6">
+      {dpgImages.map((name) => (
+        <img
+          src={img(`dpg/${name}`)}
+          alt={`DPG-Bench comparison ${name.replace('.jpg', '')}`}
+          class="w-full rounded-lg border border-slate-200"
+          loading="lazy"
+        />
+      ))}
+    </div>
   </section>
 
   <!-- Method -->
@@ -234,50 +250,6 @@ const bibtex = `@misc{yan2026loopedflow,
       Token Loop reaches 0.5422 GenEval and 0.8007 DPG-Bench in 2.18s, outperforming the
       50-step no-loop baseline on quality at lower latency.
     </p>
-  </section>
-
-  <!-- Qualitative -->
-  <section class="mt-12">
-    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Qualitative Results</h2>
-
-    <figure class="mt-6">
-      <img
-        src={img('fig7_qualitative_twocol.png')}
-        alt="Qualitative comparison: matched prompts without looping and with looping"
-        class="w-full rounded-lg border border-slate-200"
-      />
-      <figcaption class="mt-2 text-sm text-slate-500">
-        Matched-prompt comparisons: looping corrects malformed or incomplete subjects and
-        produces cleaner, more faithful compositions.
-      </figcaption>
-    </figure>
-
-    <div class="mt-8 space-y-8">
-      {comparisons.map((c) => (
-        <figure>
-          <div class="grid grid-cols-2 gap-4 max-w-xl">
-            <div>
-              <img src={c.baseline} alt={`Baseline sample for: ${c.prompt}`} class="w-full rounded-lg border border-slate-200" />
-              <p class="mt-1 text-center text-xs text-slate-500">w/o Loop</p>
-            </div>
-            <div>
-              <img src={c.loop} alt={`Looped sample for: ${c.prompt}`} class="w-full rounded-lg border border-slate-200" />
-              <p class="mt-1 text-center text-xs text-slate-500">Loop (Ours)</p>
-            </div>
-          </div>
-          <figcaption class="mt-2 text-sm text-slate-500">{c.prompt}</figcaption>
-        </figure>
-      ))}
-    </div>
-
-    <div class="mt-8 grid gap-6 sm:grid-cols-2">
-      {gen2Grids.map((g) => (
-        <figure>
-          <img src={g.src} alt={g.caption} class="w-full rounded-lg border border-slate-200" />
-          <figcaption class="mt-2 text-sm text-slate-500">{g.caption}</figcaption>
-        </figure>
-      ))}
-    </div>
   </section>
 
   <!-- BibTeX -->
