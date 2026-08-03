@@ -1,19 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import NewsItem from '../components/NewsItem.astro';
-
-const featuredProjects = (await getCollection('projects'))
-  .filter((p) => p.data.featured)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
-
-const news = [
-  { date: 'Aug. 2026', text: 'Started building this personal website.' },
-  { date: 'Jul. 2026', text: 'Started the ToolMind embodied-agent project.' },
-  { date: 'Jun. 2026', text: 'Exploring training-free test-time compute for flow matching models.' },
-];
 
 const honors = [
   { year: '2025', title: 'National Scholarship', org: 'Ministry of Education, China' },
@@ -76,34 +62,6 @@ const honors = [
         the stack from algorithms to systems.
       </p>
     </div>
-  </section>
-
-  <!-- Research Highlights -->
-  <section class="mt-14">
-    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Research Highlights</h2>
-    <div class="mt-6 grid gap-5 sm:grid-cols-2">
-      {featuredProjects.map((project) => (
-        <ProjectCard
-          title={project.data.title}
-          description={project.data.description}
-          tags={project.data.tags}
-          image={project.data.image}
-          href={project.data.page}
-          links={{ paper: project.data.paper, code: project.data.code, demo: project.data.demo }}
-        />
-      ))}
-    </div>
-    <p class="mt-4 text-sm">
-      <a href="/projects" class="text-indigo-600 hover:underline">View all projects &rarr;</a>
-    </p>
-  </section>
-
-  <!-- News -->
-  <section class="mt-14">
-    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">News</h2>
-    <ul class="mt-4 space-y-3">
-      {news.map((item) => <NewsItem date={item.date} text={item.text} />)}
-    </ul>
   </section>
 
   <!-- Honors -->
