@@ -2,9 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const honors = [
-  { year: '2025', title: 'National Scholarship', org: 'Ministry of Education, China' },
-  { year: '2024', title: 'First-Class Academic Excellence Scholarship', org: 'Huazhong University of Science and Technology' },
-  { year: '2024', title: 'Meritorious Winner, Mathematical Contest in Modeling (MCM/ICM)', org: 'COMAP' },
+  { date: '2026.04', title: 'Second Prize, Huawei ICT Competition Final', org: 'Huawei' },
+  { date: '2025.11', title: 'Silver Medal, ICPC Asia Wuhan Regional Contest', org: 'International Collegiate Programming Contest' },
+  { date: '2025.10', title: 'Silver Medal, CCF CCSP Competition (Harbin)', org: 'China Computer Federation' },
+  { date: '2024–2025', title: 'National Scholarship', org: 'Huazhong University of Science and Technology' },
+  { date: '2024.12', title: 'CCF CSP Certification, 36th Session — 500/500', org: 'China Computer Federation' },
 ];
 ---
 
@@ -50,7 +52,7 @@ const honors = [
       <p>
         I am an undergraduate student at the School of Computer Science and Technology,
         Huazhong University of Science and Technology. My research centers on generative
-        modeling — in particular flow matching, rectification-enhanced autoencoders (RAE),
+        modeling — in particular flow matching, representation autoencoders (RAEs),
         and Diffusion Transformers — and on training-free methods that make inference
         faster and better without retraining.
       </p>
@@ -70,7 +72,7 @@ const honors = [
     <ul class="mt-4 space-y-3">
       {honors.map((h) => (
         <li class="flex gap-4 text-sm">
-          <span class="shrink-0 w-14 text-slate-500 font-medium">{h.year}</span>
+          <span class="shrink-0 w-24 text-slate-500 font-medium">{h.date}</span>
           <span class="text-slate-700">
             <span class="font-medium text-slate-900">{h.title}</span>
             <span class="text-slate-500"> — {h.org}</span>

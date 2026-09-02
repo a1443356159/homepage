@@ -4,7 +4,6 @@ description: "Practical deployment of large-model inference services with SGLang
 date: 2026-05-01
 featured: false
 tags: ["LLM Serving", "Systems"]
-code: "#"
 ---
 
 Hands-on serving of large language and multimodal models with SGLang:

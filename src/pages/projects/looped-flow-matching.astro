@@ -1,6 +1,15 @@
 ---
+import { getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const project = await getEntry('projects', 'looped-flow-matching');
+
+if (!project) {
+  throw new Error('Missing looped-flow-matching project entry');
+}
+
+const { data } = project;
+const displayTitle = data.fullTitle ?? data.title;
 const img = (name: string) => `/images/looped-flow-matching/${name}`;
 
 const genevalImages = [
@@ -30,231 +39,332 @@ const mainResults = [
   {
     model: 'Scale-RAE DiT2.4B',
     rows: [
-      { method: 'w/o Loop', geneval: '0.4471', dpg: '0.7656', imagereward: '0.0994', time: '1.31', best: false },
-      { method: 'Dense Token Loop (Ours)', geneval: '0.5422', dpg: '0.8007', imagereward: '0.4816', time: '2.18', best: true },
-      { method: 'Sparse Token Loop (Ours)', geneval: '0.5082', dpg: '0.7893', imagereward: '0.2798', time: '1.69', best: false },
+      { method: 'w/o Loop', geneval: '0.4471', dpg: '0.7656', imagereward: '0.0994', time: '1.3054' },
+      { method: 'Dense Token Loop (Ours)', geneval: '0.5422', dpg: '0.8007', imagereward: '0.4816', time: '2.1812' },
+      { method: 'Sparse Token Loop (Ours)', geneval: '0.5082', dpg: '0.7893', imagereward: '0.2798', time: '1.6884' },
     ],
   },
   {
     model: 'Scale-RAE DiT9.8B',
     rows: [
-      { method: 'w/o Loop', geneval: '0.5321', dpg: '0.8003', imagereward: '0.4609', time: '1.69', best: false },
-      { method: 'Dense Token Loop (Ours)', geneval: '0.5977', dpg: '0.8178', imagereward: '0.7211', time: '4.04', best: true },
-      { method: 'Sparse Token Loop (Ours)', geneval: '0.5857', dpg: '0.8206', imagereward: '0.6365', time: '2.44', best: false },
+      { method: 'w/o Loop', geneval: '0.5321', dpg: '0.8003', imagereward: '0.4609', time: '1.6853' },
+      { method: 'Dense Token Loop (Ours)', geneval: '0.5977', dpg: '0.8178', imagereward: '0.7211', time: '4.0384' },
+      { method: 'Sparse Token Loop (Ours)', geneval: '0.5857', dpg: '0.8206', imagereward: '0.6365', time: '2.4410' },
     ],
   },
   {
     model: 'RAEv2 SigLIP2-B (615M)',
     rows: [
-      { method: 'w/o Loop', geneval: '0.3829', dpg: '0.7131', imagereward: '-0.3385', time: '0.80', best: false },
-      { method: 'Dense Token Loop (Ours)', geneval: '0.3795', dpg: '0.7226', imagereward: '-0.2538', time: '1.10', best: true },
-      { method: 'Sparse Token Loop (Ours)', geneval: '0.3815', dpg: '0.7152', imagereward: '-0.2931', time: '1.36', best: false },
+      { method: 'w/o Loop', geneval: '0.3829', dpg: '0.7131', imagereward: '-0.3385', time: '0.8025' },
+      { method: 'Dense Token Loop (Ours)', geneval: '0.3795', dpg: '0.7226', imagereward: '-0.2538', time: '1.1023' },
+      { method: 'Sparse Token Loop (Ours)', geneval: '0.3815', dpg: '0.7152', imagereward: '-0.2931', time: '1.3572' },
     ],
   },
 ];
-
-const guidanceResults = [
-  { model: 'Scale-RAE DiT2.4B', base: '0.4471', guided: '0.5691', baseDpg: '0.7656', guidedDpg: '0.8053' },
-  { model: 'Scale-RAE DiT9.8B', base: '0.5321', guided: '0.6432', baseDpg: '0.8003', guidedDpg: '0.8264' },
-  { model: 'RAEv2 SigLIP2-B (615M)', base: '0.3829', guided: '0.4532', baseDpg: '0.7131', guidedDpg: '0.7521' },
-];
-
-const bibtex = `@misc{yan2026loopedflow,
-  title  = {Training-Free Hidden-State Refinement for Flow-Matching Image Generators},
-  author = {Yan, Yuanyi},
-  year   = {2026},
-  note   = {Manuscript in preparation}
-}`;
 ---
 
-<BaseLayout
-  title="Looped Flow Matching — Yuanyi Yan"
-  description="Training-free hidden-state refinement for flow-matching image generators: loop selected transformer layers inside a frozen denoiser for better samples without retraining."
->
-  <a href="/projects" class="text-sm text-indigo-600 hover:underline">&larr; Back to projects</a>
+<BaseLayout title={`${displayTitle} — Yuanyi Yan`} description={data.description}>
+  <article>
+    <a href="/projects" class="text-sm text-indigo-600 hover:underline">&larr; Back to projects</a>
 
-  <!-- Header -->
-  <header class="mt-4">
-    <h1 class="text-3xl font-bold text-slate-900 leading-snug">
-      Training-Free Hidden-State Refinement for Flow-Matching Image Generators
-    </h1>
-    <p class="mt-3 text-slate-600">Yuanyi Yan</p>
-    <p class="mt-1 text-sm text-slate-500 italic">Manuscript in preparation</p>
-    <div class="mt-4 flex flex-wrap gap-3 text-sm">
-      <span class="border border-slate-200 rounded px-3 py-1.5 text-slate-400" title="Available upon release">
-        Paper (coming soon)
-      </span>
-      <a
-        href="https://github.com/a1443356159/looped-flow-matching"
-        target="_blank"
-        rel="noopener"
-        class="border border-slate-300 rounded px-3 py-1.5 text-slate-700 hover:border-indigo-600 hover:text-indigo-600"
-      >
-        Code
-      </a>
-    </div>
-  </header>
+    <header class="mx-auto mt-7 max-w-3xl text-center">
+      <h1 class="text-balance text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+        {displayTitle}
+      </h1>
 
-  <!-- Teaser -->
-  <figure class="mt-8">
-    <img
-      src={img('teaser_qualitative_efficiency.png')}
-      alt="Teaser: qualitative gains and quality-efficiency trade-offs of token looping"
-      class="w-full rounded-lg border border-slate-200"
-    />
-    <figcaption class="mt-2 text-sm text-slate-500">
-      Left: samples without looping, with Dense Token Loop, and with Loop Guidance. Right:
-      looping improves GenEval and DPG-Bench at a better quality-efficiency trade-off than
-      simply adding sampling steps.
-    </figcaption>
-  </figure>
+      <p class="mt-5 text-sm leading-relaxed text-slate-700 sm:text-base">
+        {data.authors.map((author, index) => (
+          <span>
+            <span class:list={[author.name === 'Yuanyi Yan' && 'font-semibold text-slate-900']}>
+              {author.name}
+            </span>
+            {author.affiliations.map((affiliation) => <sup>{affiliation}</sup>)}
+            {index < data.authors.length - 1 && <span>, </span>}
+          </span>
+        ))}
+      </p>
 
-  <!-- Qualitative comparisons -->
-  <section class="mt-12">
-    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Qualitative Comparisons</h2>
-    <p class="mt-4 text-slate-700 leading-relaxed">
-      Matched-prompt samples on Scale-RAE Qwen7B / DiT9.8B (seed 42): w/o Loop vs. Dense
-      Token Loop vs. Loop Guidance.
-    </p>
+      <ol class="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-slate-500">
+        {data.affiliations.map((affiliation, index) => (
+          <li><sup>{index + 1}</sup>{affiliation}</li>
+        ))}
+      </ol>
 
-    <h3 class="mt-8 font-semibold text-slate-900">GenEval prompts</h3>
-    <div class="mt-4 space-y-6">
-      {genevalImages.map((name) => (
-        <img
-          src={img(`geneval/${name}`)}
-          alt={`GenEval comparison ${name.replace('.jpg', '')}`}
-          class="w-full rounded-lg border border-slate-200"
-          loading="lazy"
-        />
-      ))}
-    </div>
+      {data.venue && <p class="mt-3 text-sm font-medium text-indigo-700">{data.venue}</p>}
 
-    <h3 class="mt-10 font-semibold text-slate-900">DPG-Bench prompts</h3>
-    <div class="mt-4 space-y-6">
-      {dpgImages.map((name) => (
-        <img
-          src={img(`dpg/${name}`)}
-          alt={`DPG-Bench comparison ${name.replace('.jpg', '')}`}
-          class="w-full rounded-lg border border-slate-200"
-          loading="lazy"
-        />
-      ))}
-    </div>
-  </section>
+      <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
+        {data.paper && (
+          <a
+            href={data.paper}
+            target="_blank"
+            rel="noopener"
+            class="rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
+          >
+            PDF
+          </a>
+        )}
+        {data.arxiv && (
+          <a
+            href={data.arxiv}
+            target="_blank"
+            rel="noopener"
+            class="rounded-md border border-slate-300 px-4 py-2 text-slate-700 hover:border-indigo-600 hover:text-indigo-600"
+          >
+            arXiv
+          </a>
+        )}
+        {data.code && (
+          <a
+            href={data.code}
+            target="_blank"
+            rel="noopener"
+            class="rounded-md border border-slate-300 px-4 py-2 text-slate-700 hover:border-indigo-600 hover:text-indigo-600"
+          >
+            Code
+          </a>
+        )}
+        <a
+          href="#citation"
+          class="rounded-md border border-slate-300 px-4 py-2 text-slate-700 hover:border-indigo-600 hover:text-indigo-600"
+        >
+          BibTeX
+        </a>
+      </div>
+    </header>
 
-  <!-- Method -->
-  <section class="mt-12">
-    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Method</h2>
-    <figure class="mt-6">
+    <figure class="mt-10">
       <img
-        src={img('method_overview.png')}
-        alt="Method overview: sampling-progress gating, loop layer range, and sparse token loop with cached complement residual"
-        class="w-full rounded-lg border border-slate-200"
+        src={img('teaser_qualitative_efficiency.png')}
+        alt="Qualitative comparisons and quality-efficiency plots for Dense Token Loop, Sparse Token Loop, and Loop Guidance"
+        class="w-full rounded-xl border border-slate-200"
       />
-      <figcaption class="mt-2 text-sm text-slate-500">
-        Overview of training-free internal looping. Sampling-Progress Gating determines
-        when looping is active. Dense Token Loop repeats the selected layer range for all
-        tokens, while the optional Sparse Token Loop restricts repetition to selected
-        tokens and reuses a complement residual initialized once. All weights remain
-        frozen, and the outer sampler is unchanged.
+      <figcaption class="mt-2 text-sm leading-relaxed text-slate-500">
+        Left: matched samples without looping, with Dense Token Loop, and with Loop Guidance.
+        Right: internal looping improves GenEval and DPG-Bench more efficiently than adding
+        outer sampling steps.
       </figcaption>
     </figure>
-    <ul class="mt-6 space-y-2 text-slate-700 leading-relaxed list-disc pl-6">
-      <li>
-        <span class="font-medium text-slate-900">Dense / Sparse Token Loop</span> — replay a
-        window of transformer layers for all tokens or only a selected subset, concentrating
-        extra compute where it matters most.
-      </li>
-      <li>
-        <span class="font-medium text-slate-900">Sampling-Progress Gating</span> — activate
-        looping only inside a mid-trajectory interval where refinement is most effective.
-      </li>
-      <li>
-        <span class="font-medium text-slate-900">Loop count and strength</span> — control how
-        many repeated updates are applied and how strongly each update moves the hidden state.
-      </li>
-      <li>
-        <span class="font-medium text-slate-900">Loop Guidance</span> — combine ordinary and
-        looped vector-field predictions, analogous to classifier-free guidance, for further
-        gains on both primary metrics.
-      </li>
-    </ul>
-  </section>
 
-  <!-- Results -->
-  <section class="mt-12">
-    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Results</h2>
+    {data.abstract && (
+      <section class="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+        <h2 class="text-xl font-semibold text-slate-900">Abstract</h2>
+        <p class="mt-3 leading-relaxed text-slate-700">{data.abstract}</p>
+      </section>
+    )}
 
-    <h3 class="mt-6 font-semibold text-slate-900">Main results across three RAE-based generators</h3>
-    <div class="mt-3 overflow-x-auto">
-      <table class="w-full text-sm border border-slate-200 rounded-lg">
-        <thead>
-          <tr class="bg-slate-50 text-slate-900">
-            <th class="text-left font-semibold px-3 py-2">Model</th>
-            <th class="text-left font-semibold px-3 py-2">Method</th>
-            <th class="text-right font-semibold px-3 py-2">GenEval &uarr;</th>
-            <th class="text-right font-semibold px-3 py-2">DPG-Bench &uarr;</th>
-            <th class="text-right font-semibold px-3 py-2">ImageReward &uarr;</th>
-            <th class="text-right font-semibold px-3 py-2">Time (s) &darr;</th>
-          </tr>
-        </thead>
-        <tbody>
-          {mainResults.map((group) =>
-            group.rows.map((row, i) => (
-              <tr class="border-t border-slate-200">
-                {i === 0 && (
-                  <td rowspan={group.rows.length} class="px-3 py-2 text-slate-600 align-top italic">
-                    {group.model}
-                  </td>
-                )}
-                <td class="px-3 py-2 text-slate-700">{row.method}</td>
-                <td class:list={["px-3 py-2 text-right", row.best ? "font-semibold text-slate-900" : "text-slate-700"]}>{row.geneval}</td>
-                <td class:list={["px-3 py-2 text-right", row.best ? "font-semibold text-slate-900" : "text-slate-700"]}>{row.dpg}</td>
-                <td class:list={["px-3 py-2 text-right", row.best ? "font-semibold text-slate-900" : "text-slate-700"]}>{row.imagereward}</td>
-                <td class="px-3 py-2 text-right text-slate-700">{row.time}</td>
-              </tr>
-            ))
-          )}
-        </tbody>
-      </table>
-    </div>
-
-    <h3 class="mt-8 font-semibold text-slate-900">Loop Guidance improves both primary metrics on all models</h3>
-    <div class="mt-3 overflow-x-auto">
-      <table class="w-full text-sm border border-slate-200 rounded-lg">
-        <thead>
-          <tr class="bg-slate-50 text-slate-900">
-            <th class="text-left font-semibold px-3 py-2">Model</th>
-            <th class="text-right font-semibold px-3 py-2">GenEval (w/o Loop)</th>
-            <th class="text-right font-semibold px-3 py-2">GenEval (+ Loop Guidance)</th>
-            <th class="text-right font-semibold px-3 py-2">DPG-Bench (w/o Loop)</th>
-            <th class="text-right font-semibold px-3 py-2">DPG-Bench (+ Loop Guidance)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {guidanceResults.map((row) => (
-            <tr class="border-t border-slate-200">
-              <td class="px-3 py-2 text-slate-600 italic">{row.model}</td>
-              <td class="px-3 py-2 text-right text-slate-700">{row.base}</td>
-              <td class="px-3 py-2 text-right font-semibold text-slate-900">{row.guided}</td>
-              <td class="px-3 py-2 text-right text-slate-700">{row.baseDpg}</td>
-              <td class="px-3 py-2 text-right font-semibold text-slate-900">{row.guidedDpg}</td>
-            </tr>
+    {data.highlights.length > 0 && (
+      <section class="mt-12">
+        <h2 class="text-xl font-semibold text-slate-900">Key Results</h2>
+        <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {data.highlights.map((highlight) => (
+            <div class="rounded-xl border border-slate-200 p-5">
+              <p class="text-2xl font-bold text-indigo-600">{highlight.value}</p>
+              <p class="mt-1 text-sm font-semibold text-slate-900">{highlight.label}</p>
+              <p class="mt-2 text-xs leading-relaxed text-slate-500">{highlight.detail}</p>
+            </div>
           ))}
-        </tbody>
-      </table>
-    </div>
+        </div>
+      </section>
+    )}
 
-    <p class="mt-4 text-slate-700 leading-relaxed">
-      Looping also beats the obvious alternative of adding sampling steps: a 25-step Dense
-      Token Loop reaches 0.5422 GenEval and 0.8007 DPG-Bench in 2.18s, outperforming the
-      50-step no-loop baseline on quality at lower latency.
-    </p>
-  </section>
+    <section class="mt-12">
+      <h2 class="border-b border-slate-200 pb-2 text-xl font-semibold text-slate-900">Method</h2>
+      <figure class="mt-6">
+        <img
+          src={img('method_overview.png')}
+          alt="Training-free internal looping with sampling-progress gating, dense or sparse token updates, and a selected transformer-layer range"
+          class="w-full rounded-xl border border-slate-200"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="mt-2 text-sm leading-relaxed text-slate-500">
+          Sampling-Progress Gating controls when looping is active. Dense Token Loop repeats
+          the selected layer range for all tokens; Sparse Token Loop restricts repetition to
+          selected tokens and reuses a cached complement residual. The outer sampler and all
+          model weights remain unchanged.
+        </figcaption>
+      </figure>
 
-  <!-- BibTeX -->
-  <section class="mt-12">
-    <h2 class="text-xl font-semibold text-slate-900 border-b border-slate-200 pb-2">Citation</h2>
-    <pre class="mt-4 bg-slate-100 rounded-lg p-4 text-sm overflow-x-auto"><code>{bibtex}</code></pre>
-  </section>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-lg border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">Dense and Sparse Token Loop</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Repeat a transformer-layer window for every token, or focus repeated computation
+            on a subset while retaining full-token attention context.
+          </p>
+        </div>
+        <div class="rounded-lg border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">Sampling-Progress Gating</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Activate internal loops only during chosen denoising calls; the strongest shared
+            setting concentrates them in the early half of sampling.
+          </p>
+        </div>
+        <div class="rounded-lg border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">Layer Range and Loop Budget</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Choose where repeated updates occur and distribute a total loop strength across
+            a controllable number of inner evaluations.
+          </p>
+        </div>
+        <div class="rounded-lg border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">Loop Guidance</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Combine ordinary and looped vector-field predictions, using their difference as
+            a prediction-space correction direction.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="border-b border-slate-200 pb-2 text-xl font-semibold text-slate-900">Results</h2>
+
+      <h3 class="mt-6 font-semibold text-slate-900">Direct looping across three RAE-based generators</h3>
+      <div class="mt-3 overflow-x-auto rounded-lg border border-slate-200">
+        <table class="w-full min-w-[760px] text-sm">
+          <thead>
+            <tr class="bg-slate-50 text-slate-900">
+              <th class="px-3 py-2 text-left font-semibold">Model</th>
+              <th class="px-3 py-2 text-left font-semibold">Method</th>
+              <th class="px-3 py-2 text-right font-semibold">GenEval &uarr;</th>
+              <th class="px-3 py-2 text-right font-semibold">DPG-Bench &uarr;</th>
+              <th class="px-3 py-2 text-right font-semibold">ImageReward &uarr;</th>
+              <th class="px-3 py-2 text-right font-semibold">Time (s) &darr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mainResults.map((group) =>
+              group.rows.map((row, index) => (
+                <tr class="border-t border-slate-200">
+                  {index === 0 && (
+                    <td rowspan={group.rows.length} class="px-3 py-2 align-top italic text-slate-600">
+                      {group.model}
+                    </td>
+                  )}
+                  <td class:list={[
+                    'px-3 py-2',
+                    row.method.includes('Ours') ? 'font-medium text-slate-900' : 'text-slate-600',
+                  ]}>
+                    {row.method}
+                  </td>
+                  <td class="px-3 py-2 text-right tabular-nums text-slate-700">{row.geneval}</td>
+                  <td class="px-3 py-2 text-right tabular-nums text-slate-700">{row.dpg}</td>
+                  <td class="px-3 py-2 text-right tabular-nums text-slate-700">{row.imagereward}</td>
+                  <td class="px-3 py-2 text-right tabular-nums text-slate-700">{row.time}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-8 font-semibold text-slate-900">Loop Guidance improves both primary metrics</h3>
+      <div class="mt-3 overflow-x-auto rounded-lg border border-slate-200">
+        <table class="w-full min-w-[680px] text-sm">
+          <thead>
+            <tr class="bg-slate-50 text-slate-900">
+              <th class="px-3 py-2 text-left font-semibold">Model</th>
+              <th class="px-3 py-2 text-right font-semibold">GenEval</th>
+              <th class="px-3 py-2 text-right font-semibold">DPG-Bench</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.results.map((result) => (
+              <tr class="border-t border-slate-200">
+                <td class="px-3 py-2 font-medium text-slate-900">{result.model}</td>
+                <td class="px-3 py-2 text-right tabular-nums text-slate-600">
+                  {result.baselineGenEval.toFixed(4)} <span class="text-indigo-500">→</span>{' '}
+                  <strong class="text-slate-900">{result.resultGenEval.toFixed(4)}</strong>
+                </td>
+                <td class="px-3 py-2 text-right tabular-nums text-slate-600">
+                  {result.baselineDpg.toFixed(4)} <span class="text-indigo-500">→</span>{' '}
+                  <strong class="text-slate-900">{result.resultDpg.toFixed(4)}</strong>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2 text-xs text-slate-500">Each metric reports the no-loop baseline followed by the loop-guided result.</p>
+
+      <p class="mt-5 leading-relaxed text-slate-700">
+        Internal compute also improves the quality–latency trade-off: a 25-step Dense Token
+        Loop reaches 0.5422 GenEval and 0.8007 DPG-Bench in 2.1812 seconds, outperforming
+        the 50-step no-loop baseline (0.4742 and 0.7738) while remaining faster than its
+        2.4032-second runtime.
+      </p>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="border-b border-slate-200 pb-2 text-xl font-semibold text-slate-900">Qualitative Comparisons</h2>
+      <p class="mt-4 leading-relaxed text-slate-700">
+        Prompt- and seed-matched samples on Scale-RAE Qwen7B / DiT9.8B compare the
+        ordinary path, Dense Token Loop, and Loop Guidance. Expand either benchmark gallery
+        to inspect the full set shown here.
+      </p>
+
+      <details class="mt-5 rounded-lg border border-slate-200 p-4">
+        <summary class="cursor-pointer font-semibold text-indigo-600">GenEval gallery · 8 comparisons</summary>
+        <div class="mt-5 space-y-6">
+          {genevalImages.map((name) => (
+            <img
+              src={img(`geneval/${name}`)}
+              alt={`GenEval matched comparison ${name.replace('.jpg', '')}`}
+              class="w-full rounded-lg border border-slate-200"
+              loading="lazy"
+              decoding="async"
+            />
+          ))}
+        </div>
+      </details>
+
+      <details class="mt-4 rounded-lg border border-slate-200 p-4">
+        <summary class="cursor-pointer font-semibold text-indigo-600">DPG-Bench gallery · 9 comparisons</summary>
+        <div class="mt-5 space-y-6">
+          {dpgImages.map((name) => (
+            <img
+              src={img(`dpg/${name}`)}
+              alt={`DPG-Bench matched comparison ${name.replace('.jpg', '')}`}
+              class="w-full rounded-lg border border-slate-200"
+              loading="lazy"
+              decoding="async"
+            />
+          ))}
+        </div>
+      </details>
+    </section>
+
+    <section class="mt-12 grid gap-5 sm:grid-cols-2">
+      <div class="rounded-xl border border-slate-200 p-6">
+        <h2 class="text-lg font-semibold text-slate-900">Scope and Limitations</h2>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600">
+          Improvements are strongest for one- and two-subject prompts, where looping often
+          repairs malformed structure and attribute binding. Aggregate GenEval2 does not
+          improve, so hidden-state refinement alone does not solve difficult counting or
+          crowded multi-object composition.
+        </p>
+      </div>
+      <div class="rounded-xl border border-slate-200 p-6">
+        <h2 class="text-lg font-semibold text-slate-900">Reproducibility</h2>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600">
+          The public repository contains the runtime, four backend adapters, exact presets,
+          2,418 ordered benchmark prompts, aggregate results, CPU-only tests, and generation,
+          export, and aggregation utilities.
+        </p>
+        {data.code && (
+          <a href={data.code} target="_blank" rel="noopener" class="mt-3 inline-block text-sm text-indigo-600 hover:underline">
+            Browse the code and reproduction guide &rarr;
+          </a>
+        )}
+      </div>
+    </section>
+
+    {data.bibtex && (
+      <section id="citation" class="mt-12 scroll-mt-6">
+        <h2 class="border-b border-slate-200 pb-2 text-xl font-semibold text-slate-900">Citation</h2>
+        <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-100 p-4 text-sm"><code>{data.bibtex}</code></pre>
+      </section>
+    )}
+  </article>
 </BaseLayout>

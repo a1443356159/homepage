@@ -4,8 +4,7 @@ description: "An end-to-end agent pipeline that lets a robotic arm perceive, rea
 date: 2026-07-01
 featured: true
 tags: ["Embodied AI", "VLA", "RGB-D"]
-code: "#"
-demo: "#"
+code: "https://github.com/a1443356159/ToolMind-Agent"
 ---
 
 An embodied-agent pipeline for a tabletop robotic arm: RGB-D perception builds

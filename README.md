@@ -18,5 +18,5 @@ npm run preview    # preview the production build
 - `src/content/publications/` — publication entries
 - `src/content/posts/` — blog posts
 
-Replace the placeholder content (bio, news, honors, project/publication links)
-with real information before deploying.
+Profile information, honors, projects, publications, and posts are maintained
+in the corresponding page or content files above.

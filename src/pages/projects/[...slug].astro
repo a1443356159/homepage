@@ -1,0 +1,199 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects
+    .filter((project) => !project.data.page)
+    .map((project) => ({
+      params: { slug: project.id },
+      props: { project },
+    }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const displayTitle = project.data.fullTitle ?? project.data.title;
+const formattedDate = project.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${displayTitle} — Yuanyi Yan`}
+  description={project.data.description}
+>
+  <article>
+    <header class="mb-10 text-center">
+      <p class="text-sm text-slate-500">
+        <a href="/projects" class="hover:text-indigo-600">Projects</a>
+        <span aria-hidden="true"> / </span>
+        <time datetime={project.data.date.toISOString()}>{formattedDate}</time>
+      </p>
+      <h1 class="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 text-balance">
+        {displayTitle}
+      </h1>
+
+      {project.data.authors.length > 0 ? (
+        <>
+          <p class="mt-5 text-sm sm:text-base leading-relaxed text-slate-700">
+            {project.data.authors.map((author, index) => (
+              <span>
+                <span class:list={[author.name === 'Yuanyi Yan' && 'font-semibold text-slate-900']}>
+                  {author.name}
+                </span>
+                {author.affiliations.map((affiliation) => <sup>{affiliation}</sup>)}
+                {index < project.data.authors.length - 1 && <span>, </span>}
+              </span>
+            ))}
+          </p>
+          <ol class="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-slate-500">
+            {project.data.affiliations.map((affiliation, index) => (
+              <li><sup>{index + 1}</sup>{affiliation}</li>
+            ))}
+          </ol>
+          {project.data.venue && <p class="mt-3 text-sm font-medium text-indigo-700">{project.data.venue}</p>}
+        </>
+      ) : (
+        <p class="mt-3 text-lg text-slate-600 leading-relaxed">{project.data.description}</p>
+      )}
+
+      {(project.data.paper || project.data.arxiv || project.data.code || project.data.demo) && (
+        <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
+          {project.data.paper && (
+            <a href={project.data.paper} target="_blank" rel="noopener" class="bg-indigo-600 text-white rounded-md px-4 py-2 hover:bg-indigo-700">PDF</a>
+          )}
+          {project.data.arxiv && (
+            <a href={project.data.arxiv} target="_blank" rel="noopener" class="border border-slate-300 rounded-md px-4 py-2 text-slate-700 hover:border-indigo-600 hover:text-indigo-600">arXiv</a>
+          )}
+          {project.data.code && (
+            <a href={project.data.code} target="_blank" rel="noopener" class="border border-slate-300 rounded-md px-4 py-2 text-slate-700 hover:border-indigo-600 hover:text-indigo-600">Code</a>
+          )}
+          {project.data.demo && (
+            <a href={project.data.demo} target="_blank" rel="noopener" class="border border-slate-300 rounded-md px-4 py-2 text-slate-700 hover:border-indigo-600 hover:text-indigo-600">Demo</a>
+          )}
+        </div>
+      )}
+
+      {project.data.tags.length > 0 && (
+        <ul class="mt-5 flex flex-wrap justify-center gap-2">
+          {project.data.tags.map((tag) => (
+            <li class="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs text-indigo-700">{tag}</li>
+          ))}
+        </ul>
+      )}
+    </header>
+
+    {project.data.abstract && (
+      <section class="rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+        <h2 class="text-lg font-semibold text-slate-900">Abstract</h2>
+        <p class="mt-3 leading-relaxed text-slate-700">{project.data.abstract}</p>
+      </section>
+    )}
+
+    {project.data.authors.length > 0 && (
+      <section class="mt-12">
+        <div class="text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600">Method at a glance</p>
+          <h2 class="mt-2 text-2xl font-semibold text-slate-900">More compute inside the denoiser</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-600">
+            The pretrained generator stays frozen. Extra computation is allocated only to selected
+            tokens, layers, and denoising calls, then optionally amplified in prediction space.
+          </p>
+        </div>
+
+        <div class="mt-7 grid gap-3 md:grid-cols-[1fr_auto_1.35fr_auto_1fr] md:items-stretch">
+          <div class="rounded-xl border border-slate-200 p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Frozen input</p>
+            <h3 class="mt-2 font-semibold text-slate-900">Ordinary denoiser</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Same weights, conditioning, latent autoencoder, and outer sampler.</p>
+          </div>
+          <div class="hidden md:flex items-center text-2xl text-indigo-300" aria-hidden="true">→</div>
+          <div class="rounded-xl border-2 border-indigo-200 bg-indigo-50/60 p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-indigo-600">Internal loop</p>
+            <h3 class="mt-2 font-semibold text-slate-900">What · when · where</h3>
+            <ul class="mt-3 grid gap-2 text-sm text-slate-700 sm:grid-cols-2 md:grid-cols-1">
+              <li><strong>Tokens:</strong> dense or sparse</li>
+              <li><strong>Time:</strong> sampling-progress gate</li>
+              <li><strong>Depth:</strong> selected layer range</li>
+              <li><strong>Budget:</strong> loop count and strength</li>
+            </ul>
+          </div>
+          <div class="hidden md:flex items-center text-2xl text-indigo-300" aria-hidden="true">→</div>
+          <div class="rounded-xl border border-slate-200 p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Prediction</p>
+            <h3 class="mt-2 font-semibold text-slate-900">Loop Guidance</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Combine ordinary and looped vector fields to control the correction strength.</p>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {project.data.highlights.length > 0 && (
+      <section class="mt-12">
+        <h2 class="text-2xl font-semibold text-slate-900">Key results</h2>
+        <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {project.data.highlights.map((highlight) => (
+            <div class="rounded-xl border border-slate-200 p-5">
+              <p class="text-2xl font-bold text-indigo-600">{highlight.value}</p>
+              <p class="mt-1 text-sm font-semibold text-slate-900">{highlight.label}</p>
+              <p class="mt-2 text-xs leading-relaxed text-slate-500">{highlight.detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {project.data.results.length > 0 && (
+      <section class="mt-10">
+        <h3 class="text-lg font-semibold text-slate-900">Loop Guidance across generators</h3>
+        <div class="mt-4 overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full min-w-[680px] text-left text-sm">
+            <thead class="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Generator</th>
+                <th class="px-4 py-3 font-semibold">Method</th>
+                <th class="px-4 py-3 font-semibold">GenEval</th>
+                <th class="px-4 py-3 font-semibold">DPG-Bench</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              {project.data.results.map((result) => (
+                <tr>
+                  <td class="px-4 py-3 font-medium text-slate-900">{result.model}</td>
+                  <td class="px-4 py-3 text-slate-600">{result.method}</td>
+                  <td class="px-4 py-3 tabular-nums text-slate-600">
+                    {result.baselineGenEval.toFixed(4)} <span class="text-indigo-500">→</span>{' '}
+                    <strong class="text-slate-900">{result.resultGenEval.toFixed(4)}</strong>
+                  </td>
+                  <td class="px-4 py-3 tabular-nums text-slate-600">
+                    {result.baselineDpg.toFixed(4)} <span class="text-indigo-500">→</span>{' '}
+                    <strong class="text-slate-900">{result.resultDpg.toFixed(4)}</strong>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-2 text-xs text-slate-500">Each cell reports the no-loop baseline followed by the loop-guided result.</p>
+      </section>
+    )}
+
+    <div class="prose-content mt-12">
+      <Content />
+    </div>
+
+    {project.data.bibtex && (
+      <section class="mt-12 border-t border-slate-200 pt-8">
+        <details>
+          <summary class="cursor-pointer font-semibold text-indigo-600 hover:text-indigo-700">BibTeX</summary>
+          <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-100 p-4 text-xs"><code>{project.data.bibtex}</code></pre>
+        </details>
+      </section>
+    )}
+  </article>
+</BaseLayout>
