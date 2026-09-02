@@ -3,6 +3,7 @@ title: "ToolMind: Embodied Agent Pipeline"
 description: "An end-to-end agent pipeline that lets a robotic arm perceive, reason about, and manipulate objects using RGB-D sensing and VLA-style planning."
 date: 2026-07-01
 featured: true
+draft: true
 tags: ["Embodied AI", "VLA", "RGB-D"]
 code: "https://github.com/a1443356159/ToolMind-Agent"
 ---

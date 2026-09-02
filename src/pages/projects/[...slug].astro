@@ -6,7 +6,7 @@ export async function getStaticPaths() {
   const projects = await getCollection('projects');
 
   return projects
-    .filter((project) => !project.data.page)
+    .filter((project) => !project.data.draft && !project.data.page)
     .map((project) => ({
       params: { slug: project.id },
       props: { project },
