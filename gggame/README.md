@@ -3,6 +3,8 @@
 入口：`https://www.yuanyiyan.com/projects/GGgame`。此仓库包含网页和房间服务。
 当前代码支持创建/加入房间、邀请链接、房主开局、电脑对手、同步猜拳、并发行动与队列、观战、重连、再来一局。
 
+正式房间服务：`https://gggame-rooms.yuanyiyan.workers.dev`。公开地址保存在 `gggame/deployment.json`，生产构建默认使用它；本地开发仍默认连接本地 Worker。`PUBLIC_GGGAME_SERVER` 可覆盖默认地址。
+
 ## 运算在哪里
 
 ```text
@@ -58,7 +60,7 @@ npm run astro -- dev --background --host 127.0.0.1 --port 4321
    部署命令会给出类似 `https://gggame-rooms.<你的子域>.workers.dev` 的地址。
    首次使用时按 Cloudflare 提示设置 workers.dev 子域。
 
-3. 在 Vercel 的 homepage 项目 Environment Variables 中添加：
+3. 当前正式服务地址已经写入 `gggame/deployment.json`，合并到网站生产分支后，Vercel 构建会自动使用它，无需额外账号授权或环境变量。若部署到其他账号，更新此 JSON，或者在 Vercel 的 homepage 项目 Environment Variables 中覆盖：
 
    ```text
    PUBLIC_GGGAME_SERVER=https://gggame-rooms.<你的子域>.workers.dev
@@ -97,6 +99,8 @@ npx wrangler deploy --env='' --dry-run
 # 先启动上面的本地网页与 Worker；首次运行需要安装浏览器
 npx playwright install chromium
 npm run gggame:e2e
+# 验证正式网站和正式房间服务
+GGGAME_WEB_URL=https://www.yuanyiyan.com GGGAME_ROOM_URL=https://gggame-rooms.yuanyiyan.workers.dev npm run gggame:e2e
 ```
 
 规则测试覆盖同时结算、穿裤子使割无效、独立户外、队列取消、步数、AI 及房间身份/持久化/重连。

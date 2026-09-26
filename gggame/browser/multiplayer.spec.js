@@ -84,7 +84,7 @@ test('three independent browsers complete a match; private hands, queues, reconn
 });
 
 test('origin checks reject unrelated sites and one human can start with a computer', async ({ page, request }) => {
-  const rejected = await request.post('http://127.0.0.1:8787/api/rooms', { headers: { Origin: 'https://unrelated.example' }, data: { name: 'bad' } });
+  const rejected = await request.post(`${process.env.GGGAME_ROOM_URL || 'http://127.0.0.1:8787'}/api/rooms`, { headers: { Origin: 'https://unrelated.example' }, data: { name: 'bad' } });
   expect(rejected.status()).toBe(403);
   await observe(page); await page.goto('/projects/GGgame');
   await page.locator('#nickname').fill('人机试玩'); await page.locator('#create').click();
