@@ -9,11 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "gggame:dev": "wrangler dev --env local --port 8787",
-    "gggame:deploy": "wrangler deploy --env=\"\"",
-    "gggame:test": "vitest run gggame/tests",
-    "gggame:e2e": "playwright test --config gggame/playwright.config.js"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
@@ -21,10 +17,5 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.6",
     "tailwindcss": "^4.3.3"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.63.0",
-    "vitest": "^5.0.2",
-    "wrangler": "^4.141.0"
   }
 }
