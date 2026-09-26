@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # original photo with EXIF, keep local
 证件照.JPG
+
+# GGgame local services and test artifacts
+.wrangler/
+.gggame-test-results/
+playwright-report/
+.env.local
