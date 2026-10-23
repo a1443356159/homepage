@@ -2,6 +2,7 @@
 title: "Notes on Flow Matching"
 description: "Working notes on flow matching: the continuity equation, optimal transport paths, and how conditional flows give a tractable training objective."
 date: 2026-08-01
+category: "Generative Models"
 tags: ["Flow Matching", "Generative Models", "Notes"]
 ---
 

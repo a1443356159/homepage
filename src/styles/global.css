@@ -25,6 +25,7 @@ body {
 .prose-content h3,
 .prose-content h4 {
   @apply font-semibold text-slate-900 mt-8 mb-3;
+  scroll-margin-top: 2rem;
 }
 .prose-content h2 { @apply text-2xl; }
 .prose-content h3 { @apply text-xl; }
@@ -38,8 +39,12 @@ body {
 .prose-content pre {
   @apply bg-slate-100 rounded-lg p-4 my-4 overflow-x-auto text-sm;
 }
-.prose-content pre code { @apply bg-transparent p-0; }
+.prose-content pre code { @apply bg-transparent p-0 text-inherit; }
 .prose-content blockquote {
   @apply border-l-4 border-indigo-200 pl-4 my-4 text-slate-600;
 }
 .prose-content hr { @apply my-8 border-slate-200; }
+.prose-content img { @apply max-w-full rounded-lg; }
+.prose-content table { @apply block max-w-full overflow-x-auto my-4 text-sm; }
+.prose-content th, .prose-content td { @apply border border-slate-200 px-3 py-2; }
+.prose-content { overflow-wrap: anywhere; }
