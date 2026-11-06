@@ -1,0 +1,92 @@
+{
+  "repository": "https://gitee.com/LanFa/gg-game",
+  "path": "web",
+  "commit": "f597ee7ab6f9407031765f35b5fe09ff5f34aaff",
+  "version": "v1",
+  "entry": "/projects/GGgame/v1",
+  "assetBase": "/gggame/v1/",
+  "legacySource": {
+    "repository": "https://github.com/a1443356159/GameFactory-3A",
+    "commit": "81de633c28e81a901b88fb29b174f8ade6345eee",
+    "path": "games/gggame"
+  },
+  "roomEndpoint": "https://gggame-api.yuanyiyan.com",
+  "htmlSha256": "5c429541fd2611921420642bb9c68663d717bda4933659e40ba27b411e91a7f8",
+  "files": [
+    {
+      "path": "assets/basis_transcoder-o4Hde_L7.js",
+      "bytes": 57529,
+      "sha256": "8478b5b6d6b74e7d3082b89f6417321d8d1dc0307f2b30d4484bb11b441696a1"
+    },
+    {
+      "path": "assets/basis_transcoder-VXdx5NbI.wasm",
+      "bytes": 527333,
+      "sha256": "6cf17dc889352c42e9acf8897107978d127005fe3386c36a0e3845e27967630a"
+    },
+    {
+      "path": "assets/courtyard-CK0kVrZp.js",
+      "bytes": 607234,
+      "sha256": "aa4c4d0360fa8fe783642d92bd4494172d0ff61426fb0f21029e6560acc16349"
+    },
+    {
+      "path": "assets/draco_decoder-C32yEggz.wasm",
+      "bytes": 285747,
+      "sha256": "c55a594e8ffd18426d36b27fea9618af3df5e173640a3e56d46f09d76f0574f2"
+    },
+    {
+      "path": "assets/draco_decoder-fzg4nYZr.js",
+      "bytes": 719410,
+      "sha256": "30e4d486fa020737af10e3c56197693e5b904bdc05b8bfa5d7b06751dec6da04"
+    },
+    {
+      "path": "assets/draco_decoder-Z1_iN-Ht.wasm",
+      "bytes": 192420,
+      "sha256": "a680d927bed9cb864ddbd63521868891af2bfbe755092761b4837487618df8ac"
+    },
+    {
+      "path": "assets/draco_wasm_wrapper-DxJM36Ib.js",
+      "bytes": 58763,
+      "sha256": "e8049906ef3f8f75d3456c22a3f31bfdfe5b5b5bd09ccdec613b9e9a49d554d8"
+    },
+    {
+      "path": "assets/draco_wasm_wrapper-fZCQGLGb.js",
+      "bytes": 58456,
+      "sha256": "8bb2952d2ba7d67e1414f8df819410cb0434a666be53f671fff75f68843d76f6"
+    },
+    {
+      "path": "assets/index-CqCoQXHL.js",
+      "bytes": 30219,
+      "sha256": "b376a5bf39e4379373bb366f1feff620f1bd5d6e48cec94605e6b0201f317a29"
+    },
+    {
+      "path": "assets/index-DDD70QHg.css",
+      "bytes": 18289,
+      "sha256": "ea31dabc6c744dcac21f059f0e957b070cae337e6b58728b62ca9c6800525624"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 327,
+      "sha256": "a8a4326a91eccad29949939e4f11b217cceb9920fd03d532837e2da18b59e09f"
+    },
+    {
+      "path": "fonts/gggame-cjk.woff2",
+      "bytes": 164544,
+      "sha256": "70798921fb0d662f7df1c69d8d6cee839a50e0786fdfd1e6e088dc7469a09a52"
+    },
+    {
+      "path": "fonts/gggame-names.woff2",
+      "bytes": 4192900,
+      "sha256": "c4eb3e491a5904faebf7c36d8aab3d601877e2dcb370e471d96c4b5dc3b6fd1d"
+    },
+    {
+      "path": "fonts/OFL.txt",
+      "bytes": 4387,
+      "sha256": "babcfe66c8a098b2fa279bc724a3a342f8124f77ce18941fbcc1bbb39823cded"
+    },
+    {
+      "path": "index.html",
+      "bytes": 10095,
+      "sha256": "5c429541fd2611921420642bb9c68663d717bda4933659e40ba27b411e91a7f8"
+    }
+  ]
+}
