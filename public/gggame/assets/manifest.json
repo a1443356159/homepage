@@ -1,0 +1,469 @@
+{
+  "api_version": "v1",
+  "assets": {
+    "web_group_gggame_courtyard_paving_soft_v3_01_8de8e1": {
+      "animations": [],
+      "artifact_id": "web_group_gggame_courtyard_paving_soft_v3_01_8de8e1",
+      "asset_id": "gggame_courtyard_paving_soft_v3_01",
+      "bounds": {
+        "center": [
+          0.0,
+          1.3125,
+          0.0
+        ],
+        "max": [
+          9.4,
+          3.025,
+          9.4
+        ],
+        "min": [
+          -9.4,
+          -0.4,
+          -9.4
+        ],
+        "size": [
+          18.8,
+          3.425,
+          18.8
+        ]
+      },
+      "capabilities": {
+        "animated": false,
+        "collidable": true,
+        "playable": false,
+        "renderable": true,
+        "skinned": false,
+        "spawnable": true
+      },
+      "category": "",
+      "class": "Group",
+      "material_bindings": [],
+      "orientation": {
+        "accessor_height_units": 3.425,
+        "forward_axis": "",
+        "needs_vision_check": true,
+        "notes": "",
+        "pitch_offset_degrees": 0.0,
+        "pivot": "as_authored",
+        "roll_offset_degrees": 0.0,
+        "runtime_forward_axis": "-z",
+        "runtime_yaw_degrees": 0.0,
+        "scale_hint_metres": null,
+        "up_axis": "+y",
+        "verified_by": "unverified",
+        "yaw_offset_degrees": 0.0
+      },
+      "package_id": "gggame_courtyard_paving_soft_v3_01",
+      "representation": "gltf_binary",
+      "sun": {},
+      "type": "environment",
+      "url": "/assets/imported/scenes/gggame_courtyard_paving_soft_v3_01.glb"
+    },
+    "web_group_gggame_courtyard_paving_soft_v3_02_7fcfaf": {
+      "animations": [],
+      "artifact_id": "web_group_gggame_courtyard_paving_soft_v3_02_7fcfaf",
+      "asset_id": "gggame_courtyard_paving_soft_v3_02",
+      "bounds": {
+        "center": [
+          0.0,
+          1.3125,
+          0.0
+        ],
+        "max": [
+          9.4,
+          3.025,
+          9.4
+        ],
+        "min": [
+          -9.4,
+          -0.4,
+          -9.4
+        ],
+        "size": [
+          18.8,
+          3.425,
+          18.8
+        ]
+      },
+      "capabilities": {
+        "animated": false,
+        "collidable": true,
+        "playable": false,
+        "renderable": true,
+        "skinned": false,
+        "spawnable": true
+      },
+      "category": "",
+      "class": "Group",
+      "material_bindings": [],
+      "orientation": {
+        "accessor_height_units": 3.425,
+        "forward_axis": "",
+        "needs_vision_check": true,
+        "notes": "",
+        "pitch_offset_degrees": 0.0,
+        "pivot": "as_authored",
+        "roll_offset_degrees": 0.0,
+        "runtime_forward_axis": "-z",
+        "runtime_yaw_degrees": 0.0,
+        "scale_hint_metres": null,
+        "up_axis": "+y",
+        "verified_by": "unverified",
+        "yaw_offset_degrees": 0.0
+      },
+      "package_id": "gggame_courtyard_paving_soft_v3_02",
+      "representation": "gltf_binary",
+      "sun": {},
+      "type": "environment",
+      "url": "/assets/imported/scenes/gggame_courtyard_paving_soft_v3_02.glb"
+    },
+    "web_group_gggame_courtyard_paving_soft_v3_03_54d80b": {
+      "animations": [],
+      "artifact_id": "web_group_gggame_courtyard_paving_soft_v3_03_54d80b",
+      "asset_id": "gggame_courtyard_paving_soft_v3_03",
+      "bounds": {
+        "center": [
+          0.0,
+          1.3125,
+          0.0
+        ],
+        "max": [
+          9.4,
+          3.025,
+          9.4
+        ],
+        "min": [
+          -9.4,
+          -0.4,
+          -9.4
+        ],
+        "size": [
+          18.8,
+          3.425,
+          18.8
+        ]
+      },
+      "capabilities": {
+        "animated": false,
+        "collidable": true,
+        "playable": false,
+        "renderable": true,
+        "skinned": false,
+        "spawnable": true
+      },
+      "category": "",
+      "class": "Group",
+      "material_bindings": [],
+      "orientation": {
+        "accessor_height_units": 3.425,
+        "forward_axis": "",
+        "needs_vision_check": true,
+        "notes": "",
+        "pitch_offset_degrees": 0.0,
+        "pivot": "as_authored",
+        "roll_offset_degrees": 0.0,
+        "runtime_forward_axis": "-z",
+        "runtime_yaw_degrees": 0.0,
+        "scale_hint_metres": null,
+        "up_axis": "+y",
+        "verified_by": "unverified",
+        "yaw_offset_degrees": 0.0
+      },
+      "package_id": "gggame_courtyard_paving_soft_v3_03",
+      "representation": "gltf_binary",
+      "sun": {},
+      "type": "environment",
+      "url": "/assets/imported/scenes/gggame_courtyard_paving_soft_v3_03.glb"
+    },
+    "web_group_gggame_courtyard_paving_soft_v3_04_0bef95": {
+      "animations": [],
+      "artifact_id": "web_group_gggame_courtyard_paving_soft_v3_04_0bef95",
+      "asset_id": "gggame_courtyard_paving_soft_v3_04",
+      "bounds": {
+        "center": [
+          0.0,
+          1.3125,
+          0.0
+        ],
+        "max": [
+          9.4,
+          3.025,
+          9.4
+        ],
+        "min": [
+          -9.4,
+          -0.4,
+          -9.4
+        ],
+        "size": [
+          18.8,
+          3.425,
+          18.8
+        ]
+      },
+      "capabilities": {
+        "animated": false,
+        "collidable": true,
+        "playable": false,
+        "renderable": true,
+        "skinned": false,
+        "spawnable": true
+      },
+      "category": "",
+      "class": "Group",
+      "material_bindings": [],
+      "orientation": {
+        "accessor_height_units": 3.425,
+        "forward_axis": "",
+        "needs_vision_check": true,
+        "notes": "",
+        "pitch_offset_degrees": 0.0,
+        "pivot": "as_authored",
+        "roll_offset_degrees": 0.0,
+        "runtime_forward_axis": "-z",
+        "runtime_yaw_degrees": 0.0,
+        "scale_hint_metres": null,
+        "up_axis": "+y",
+        "verified_by": "unverified",
+        "yaw_offset_degrees": 0.0
+      },
+      "package_id": "gggame_courtyard_paving_soft_v3_04",
+      "representation": "gltf_binary",
+      "sun": {},
+      "type": "environment",
+      "url": "/assets/imported/scenes/gggame_courtyard_paving_soft_v3_04.glb"
+    },
+    "web_group_gggame_courtyard_paving_soft_v3_05_599dd4": {
+      "animations": [],
+      "artifact_id": "web_group_gggame_courtyard_paving_soft_v3_05_599dd4",
+      "asset_id": "gggame_courtyard_paving_soft_v3_05",
+      "bounds": {
+        "center": [
+          0.0,
+          1.3125,
+          0.0
+        ],
+        "max": [
+          12.6,
+          3.025,
+          12.6
+        ],
+        "min": [
+          -12.6,
+          -0.4,
+          -12.6
+        ],
+        "size": [
+          25.2,
+          3.425,
+          25.2
+        ]
+      },
+      "capabilities": {
+        "animated": false,
+        "collidable": true,
+        "playable": false,
+        "renderable": true,
+        "skinned": false,
+        "spawnable": true
+      },
+      "category": "",
+      "class": "Group",
+      "material_bindings": [],
+      "orientation": {
+        "accessor_height_units": 3.425,
+        "forward_axis": "",
+        "needs_vision_check": true,
+        "notes": "",
+        "pitch_offset_degrees": 0.0,
+        "pivot": "as_authored",
+        "roll_offset_degrees": 0.0,
+        "runtime_forward_axis": "-z",
+        "runtime_yaw_degrees": 0.0,
+        "scale_hint_metres": null,
+        "up_axis": "+y",
+        "verified_by": "unverified",
+        "yaw_offset_degrees": 0.0
+      },
+      "package_id": "gggame_courtyard_paving_soft_v3_05",
+      "representation": "gltf_binary",
+      "sun": {},
+      "type": "environment",
+      "url": "/assets/imported/scenes/gggame_courtyard_paving_soft_v3_05.glb"
+    },
+    "web_group_gggame_courtyard_paving_soft_v3_06_4767de": {
+      "animations": [],
+      "artifact_id": "web_group_gggame_courtyard_paving_soft_v3_06_4767de",
+      "asset_id": "gggame_courtyard_paving_soft_v3_06",
+      "bounds": {
+        "center": [
+          0.0,
+          1.3125,
+          0.0
+        ],
+        "max": [
+          12.6,
+          3.025,
+          12.6
+        ],
+        "min": [
+          -12.6,
+          -0.4,
+          -12.6
+        ],
+        "size": [
+          25.2,
+          3.425,
+          25.2
+        ]
+      },
+      "capabilities": {
+        "animated": false,
+        "collidable": true,
+        "playable": false,
+        "renderable": true,
+        "skinned": false,
+        "spawnable": true
+      },
+      "category": "",
+      "class": "Group",
+      "material_bindings": [],
+      "orientation": {
+        "accessor_height_units": 3.425,
+        "forward_axis": "",
+        "needs_vision_check": true,
+        "notes": "",
+        "pitch_offset_degrees": 0.0,
+        "pivot": "as_authored",
+        "roll_offset_degrees": 0.0,
+        "runtime_forward_axis": "-z",
+        "runtime_yaw_degrees": 0.0,
+        "scale_hint_metres": null,
+        "up_axis": "+y",
+        "verified_by": "unverified",
+        "yaw_offset_degrees": 0.0
+      },
+      "package_id": "gggame_courtyard_paving_soft_v3_06",
+      "representation": "gltf_binary",
+      "sun": {},
+      "type": "environment",
+      "url": "/assets/imported/scenes/gggame_courtyard_paving_soft_v3_06.glb"
+    },
+    "web_group_gggame_courtyard_paving_soft_v3_07_c6e033": {
+      "animations": [],
+      "artifact_id": "web_group_gggame_courtyard_paving_soft_v3_07_c6e033",
+      "asset_id": "gggame_courtyard_paving_soft_v3_07",
+      "bounds": {
+        "center": [
+          0.0,
+          1.3125,
+          0.0
+        ],
+        "max": [
+          12.6,
+          3.025,
+          12.6
+        ],
+        "min": [
+          -12.6,
+          -0.4,
+          -12.6
+        ],
+        "size": [
+          25.2,
+          3.425,
+          25.2
+        ]
+      },
+      "capabilities": {
+        "animated": false,
+        "collidable": true,
+        "playable": false,
+        "renderable": true,
+        "skinned": false,
+        "spawnable": true
+      },
+      "category": "",
+      "class": "Group",
+      "material_bindings": [],
+      "orientation": {
+        "accessor_height_units": 3.425,
+        "forward_axis": "",
+        "needs_vision_check": true,
+        "notes": "",
+        "pitch_offset_degrees": 0.0,
+        "pivot": "as_authored",
+        "roll_offset_degrees": 0.0,
+        "runtime_forward_axis": "-z",
+        "runtime_yaw_degrees": 0.0,
+        "scale_hint_metres": null,
+        "up_axis": "+y",
+        "verified_by": "unverified",
+        "yaw_offset_degrees": 0.0
+      },
+      "package_id": "gggame_courtyard_paving_soft_v3_07",
+      "representation": "gltf_binary",
+      "sun": {},
+      "type": "environment",
+      "url": "/assets/imported/scenes/gggame_courtyard_paving_soft_v3_07.glb"
+    },
+    "web_group_gggame_courtyard_paving_soft_v3_08_50f8f9": {
+      "animations": [],
+      "artifact_id": "web_group_gggame_courtyard_paving_soft_v3_08_50f8f9",
+      "asset_id": "gggame_courtyard_paving_soft_v3_08",
+      "bounds": {
+        "center": [
+          0.0,
+          1.3125,
+          0.0
+        ],
+        "max": [
+          12.6,
+          3.025,
+          12.6
+        ],
+        "min": [
+          -12.6,
+          -0.4,
+          -12.6
+        ],
+        "size": [
+          25.2,
+          3.425,
+          25.2
+        ]
+      },
+      "capabilities": {
+        "animated": false,
+        "collidable": true,
+        "playable": false,
+        "renderable": true,
+        "skinned": false,
+        "spawnable": true
+      },
+      "category": "",
+      "class": "Group",
+      "material_bindings": [],
+      "orientation": {
+        "accessor_height_units": 3.425,
+        "forward_axis": "",
+        "needs_vision_check": true,
+        "notes": "",
+        "pitch_offset_degrees": 0.0,
+        "pivot": "as_authored",
+        "roll_offset_degrees": 0.0,
+        "runtime_forward_axis": "-z",
+        "runtime_yaw_degrees": 0.0,
+        "scale_hint_metres": null,
+        "up_axis": "+y",
+        "verified_by": "unverified",
+        "yaw_offset_degrees": 0.0
+      },
+      "package_id": "gggame_courtyard_paving_soft_v3_08",
+      "representation": "gltf_binary",
+      "sun": {},
+      "type": "environment",
+      "url": "/assets/imported/scenes/gggame_courtyard_paving_soft_v3_08.glb"
+    }
+  }
+}

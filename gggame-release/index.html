@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="GGgame：和朋友一起猜拳、抢步数、穿裤子，成为最后的幸存者。" />
+    <link rel="icon" href="/gggame/favicon.svg" />
     <title>GGgame · 在线串门大乱斗</title>
-    <link rel="icon" href="/favicon.svg" />
-    <script type="module" crossorigin src="/gggame/assets/index-uqPTaTze.js"></script>
-    <link rel="stylesheet" crossorigin href="/gggame/assets/index-C7gmsoXH.css">
+
+    <script type="module" crossorigin src="/gggame/assets/index-DI-a3ZF3.js"></script>
+    <link rel="stylesheet" crossorigin href="/gggame/assets/index-GXccFtB1.css">
   </head>
   <body>
     <main id="gggame" data-endpoint="https://gggame-api.yuanyiyan.com">
-      <header class="topbar"><a href="/">← Yuanyi's playground</a><div class="top-actions"><button id="leaderboard-open">排行榜</button><button id="sound-toggle" aria-pressed="true">音效：开</button><span id="connection">尚未连接</span></div></header>
+      <header class="topbar"><a href="/gggame/">GGgame · 课程设计</a><div class="top-actions"><button id="leaderboard-open">排行榜</button><button id="sound-toggle" aria-pressed="true">音效：开</button><span id="connection">尚未连接</span></div></header>
       <dialog id="leaderboard" aria-labelledby="leaderboard-title">
         <div class="section-title"><div><p class="eyebrow">NEIGHBORHOOD RECORDS</p><h2 id="leaderboard-title">街坊排行榜</h2></div><button id="leaderboard-close" aria-label="关闭排行榜">关闭</button></div>
         <p class="fine">按胜场排序，胜场相同则游玩次数少者在前 · 展示前 50 名</p>
@@ -41,7 +42,7 @@
           </div>
           <p id="world-hint" class="fine">每个人的家都是独立地点。路上可以擦肩而过，但不能交手。</p>
         </section>
-        <div id="lobby" class="panel"><h2>等朋友来串门</h2><p class="muted">至少 2 人，也可以添加电脑先试一局。</p><div id="members" class="member-list"></div><div class="buttons"><button id="start" class="primary">开始游戏</button><button id="add-bot">添加电脑</button></div><p id="host-hint" class="muted"></p></div>
+        <div id="lobby" class="panel"><h2>等朋友来串门</h2><p class="muted">至少 2 人，也可以添加电脑先试一局。</p><label>我的角色<select id="character" aria-label="我的角色"></select></label><div id="members" class="member-list"></div><div class="buttons"><button id="start" class="primary">开始游戏</button><button id="add-bot">添加电脑</button></div><p id="host-hint" class="muted"></p></div>
         <section id="rps-stage" class="focus-stage" hidden aria-labelledby="rps-title">
           <p class="eyebrow" id="rps-round"></p><p class="stage-label">一起出拳</p>
           <h2 id="rps-title" tabindex="-1">这一拳，出什么？</h2><p id="rps-note" class="muted"></p>

@@ -1,0 +1,153 @@
+{
+  "assets": {
+    "web_group_gggame_courtyard_paving_soft_v3_07_c6e033": {
+      "capabilities": {
+        "animated": false,
+        "collidable": true,
+        "playable": false,
+        "renderable": true,
+        "skinned": false,
+        "spawnable": true
+      },
+      "class": "Group",
+      "representation": "gltf_binary",
+      "type": "environment",
+      "url": "/assets/imported/scenes/gggame_courtyard_paving_soft_v3_07.glb"
+    }
+  },
+  "camera": {
+    "controls": "none",
+    "far": 300.0,
+    "fov": 50.0,
+    "near": 0.1,
+    "position": {
+      "x": 0.0,
+      "y": 2.0,
+      "z": 8.0
+    },
+    "target": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "type": "OrthographicCamera"
+  },
+  "coordinate_system": "y_up_right_handed_metres",
+  "draft_id": "draft_gggame_courtyard_paving_soft_v3_07_cf41958c",
+  "engine": "three_js",
+  "entities": [
+    {
+      "artifact_id": "web_group_gggame_courtyard_paving_soft_v3_07_c6e033",
+      "behaviors": [],
+      "cast_shadow": true,
+      "category": "",
+      "collision": true,
+      "entity_id": "environment_000",
+      "parameters": {},
+      "receive_shadow": true,
+      "role": "environment",
+      "transform": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    }
+  ],
+  "environment": {
+    "background": "#e4eadb",
+    "background_artifact_id": "",
+    "background_blurriness": 0.0,
+    "background_intensity": 1.0,
+    "background_rotation_degrees": 0.0,
+    "environment_artifact_id": "",
+    "environment_intensity": 1.0,
+    "environment_rotation_degrees": 0.0,
+    "fog": {
+      "color": "#101014",
+      "density": 0.001,
+      "far": 200.0,
+      "near": 1.0,
+      "type": "none"
+    },
+    "ground": {},
+    "preset": "",
+    "shadows": true,
+    "show_sky": true,
+    "sky": {},
+    "sun": {},
+    "tone_mapping": "NeutralToneMapping",
+    "tone_mapping_exposure": 1.0,
+    "water": [],
+    "wind": {}
+  },
+  "lights": [
+    {
+      "cast_shadow": false,
+      "color": "#f2f6ff",
+      "intensity": 1.8,
+      "light_id": "sky_light",
+      "options": {
+        "groundColor": "#959a91"
+      },
+      "position": {
+        "x": 0.0,
+        "y": 5.0,
+        "z": 0.0
+      },
+      "target": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "type": "HemisphereLight"
+    },
+    {
+      "cast_shadow": true,
+      "color": "#fff8ee",
+      "intensity": 2.0,
+      "light_id": "sun_light",
+      "options": {
+        "shadow_extent": 23.120000267028807,
+        "shadow_far": 47.01657415101065
+      },
+      "position": {
+        "x": -10.581636062691738,
+        "y": 21.163272125383475,
+        "z": 14.108848083588985
+      },
+      "target": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "type": "DirectionalLight"
+    }
+  ],
+  "metadata": {
+    "native_scene": "",
+    "source": {
+      "artifact_key": "glb_path",
+      "game_id": "gggame",
+      "run_id": "20260929_courtyard_paving",
+      "task_id": "courtyard_paving_soft_v3_07",
+      "task_kind": "3d_scene"
+    }
+  },
+  "name": "gggame_courtyard_paving_soft_v3_07",
+  "project_id": "",
+  "scene_graph_version": 1,
+  "spawn_points": [],
+  "world_id": "gggame_courtyard_paving_soft_v3_07"
+}
