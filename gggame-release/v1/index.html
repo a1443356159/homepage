@@ -6,7 +6,7 @@
     <meta name="description" content="GGgame：和朋友一起猜拳、抢步数、穿裤子，成为最后的幸存者。" />
     <title>GGgame · 在线串门大乱斗</title>
     <link rel="icon" href="/gggame/v1/favicon.svg" />
-    <script type="module" crossorigin src="/gggame/v1/assets/index-Cr97OK86.js"></script>
+    <script type="module" crossorigin src="/gggame/v1/assets/index-Cbe84CNM.js"></script>
     <link rel="stylesheet" crossorigin href="/gggame/v1/assets/index-CYOIBMq9.css">
   </head>
   <body>
@@ -47,7 +47,7 @@
           <p class="eyebrow" id="rps-round"></p><p class="stage-label">一起出拳</p>
           <h2 id="rps-title" tabindex="-1">这一拳，出什么？</h2><p id="rps-note" class="muted"></p>
           <div id="hands" class="hands"><button data-hand="rock"><b aria-hidden="true">石</b><span>石头</span></button><button data-hand="scissors"><b aria-hidden="true">剪</b><span>剪刀</span></button><button data-hand="paper"><b aria-hidden="true">布</b><span>布</span></button></div>
-          <div id="pick-status" class="pick-status"></div><p class="fine">每个人选好后一起揭晓。平局就全员再来。</p>
+          <p id="rps-countdown" class="fine"></p><div id="pick-status" class="pick-status"></div><p class="fine">选好后一起揭晓，10 秒未选由服务器随机代出。</p>
         </section>
         <section id="reveal-stage" class="focus-stage" hidden aria-labelledby="reveal-title">
           <p id="reveal-round" class="eyebrow"></p><p class="stage-label">猜拳结果</p>
@@ -61,12 +61,12 @@
             <section class="panel controls"><div class="section-title"><h2>我的行动</h2><span id="steps"></span></div><p id="self-status" class="muted"></p><div class="buttons"><button data-action="wear">穿裤子 <small>1s</small></button><button data-action="knife">拿刀 <small>1s</small></button></div>
               <div class="target-row"><label>去谁家<select id="destination"></select></label><button data-action="move">移动 <small>2s</small></button></div>
               <div class="target-row"><label>选择对手<select id="target"></select></label><button data-action="strip">脱裤子 <small>3s</small></button><button data-action="execute" class="danger">割 <small>3s</small></button></div>
-              <p id="queue" class="queue"></p><p class="fine">每个行动消耗 1 步。忙碌时提交会排队，完成后立即执行下一步。</p>
+              <p id="queue" class="queue"></p><p id="idle-countdown" class="fine" hidden></p><p class="fine">每个行动消耗 1 步。忙碌时提交会排队。还有步数、没有执行或排队动作时，闲置 15 秒会丢弃剩余步数。</p>
             </section>
           </div><aside class="panel journal"><p class="eyebrow">LIVE JOURNAL</p><h2>发生了什么</h2><ol id="logs" aria-live="polite" aria-relevant="additions"></ol></aside></div>
         </div>
       </section>
-      <details class="rules"><summary>第一次玩？看看规则 ↗</summary><div><p>所有人从自己家开始，穿 1 条裤子，最多穿 3 条。每次穿、脱只增减 1 条；没有裤子也不会自动出局。</p><p>一起石头剪刀布；平局全员重来。可以有多个赢家，每位赢家获得「输家人数」的步数。连续输 7 次会获得 3 步保底并重新累计；平局不计入也不中断连败，获胜清零。分出胜负后展示 5 秒再开始行动；平局只展示 1 秒就重新出拳。所有人的步数和行动用完后进入下一轮，步数不能保留。</p><p>拿刀 1 秒、穿裤子 1 秒、移动 2 秒、脱裤子 3 秒、割 3 秒，各花 1 步。刀永久持有；同地点才能脱或割。割需要持刀且对手没有裤子。</p><p>各人同时行动，自身动作依次执行。移动一开始就进入独立的户外，2 秒后到达。其他动作执行期间仍可能被偷袭。</p><p>动作结束时结算；同刻优先级：拿刀 → 移动 → 穿 → 脱 → 割。割结算时对方穿上了裤子，则无效且照常消耗步数。最后存活的人获胜。</p><p>房主只能在大厅踢人。房主主动退出会关闭房间。房主关闭页面或连接断开后有 15 秒重连时间，超时关闭房间；网络无响应时最迟在最后心跳后 45 秒关闭。其他成员退出视为出局，意外断线有 75 秒重连时间。服务器按收到操作的时间处理，同类同刻动作按提交顺序结算。试玩服务每房间最多 64 人。</p></div></details>
+      <details class="rules"><summary>第一次玩？看看规则 ↗</summary><div><p>所有人从自己家开始，穿 1 条裤子，最多穿 3 条。每次穿、脱只增减 1 条；没有裤子也不会自动出局。</p><p>一起石头剪刀布；平局全员重来。可以有多个赢家，每位赢家获得「输家人数」的步数。连续输 7 次会获得 3 步保底并重新累计；平局不计入也不中断连败，获胜清零。出拳限时 10 秒，未选由服务器随机代出。分出胜负后展示 2.5 秒再开始行动；平局只展示 1 秒就重新出拳。所有人的步数和行动用完后进入下一轮，步数不能保留。</p><p>拿刀 1 秒、穿裤子 1 秒、移动 2 秒、脱裤子 3 秒、割 3 秒，各花 1 步。刀永久持有；同地点才能脱或割。割需要持刀且对手没有裤子。</p><p>各人同时行动，自身动作依次执行。移动一开始就进入独立的户外，2 秒后到达。其他动作执行期间仍可能被偷袭。</p><p>动作结束时结算；同刻优先级：拿刀 → 移动 → 穿 → 脱 → 割。割结算时对方穿上了裤子，则无效且照常消耗步数。最后存活的人获胜。</p><p>房主只能在大厅踢人。房主主动退出会关闭房间。房主关闭页面或连接断开后有 15 秒重连时间，超时关闭房间；网络无响应时最迟在最后心跳后 45 秒关闭。其他成员退出视为出局，意外断线有 75 秒重连时间。服务器按收到操作的时间处理，同类同刻动作按提交顺序结算。线上试玩服务每房间最多 8 人。</p></div></details>
       <footer>GGgame · 低配规则，多人快乐。<span>3D 小院试玩版</span></footer>
       <noscript>请开启 JavaScript 以连接游戏房间。</noscript>
     </main>

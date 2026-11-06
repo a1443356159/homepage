@@ -1,4 +1,4 @@
-var yl=s=>{throw TypeError(s)};var C3=(s,e,t)=>e.has(s)||yl("Cannot "+t);var cr=(s,e,t)=>e.has(s)?yl("Cannot add the same private member more than once"):e instanceof WeakSet?e.add(s):e.set(s,t);var Te=(s,e,t)=>(C3(s,e,"access private method"),t);import{C as ta,A as S3}from"./index-ByFAPJYn.js";const w3="/gggame/v2/assets/gg-hero-002-FycmK-Wq.glb",b3="/gggame/v2/assets/gg-hero-007-BBb_nv6e.glb",T3="/gggame/v2/assets/gg-hero-012-DqUwgxGX.glb",B3="/gggame/v2/assets/gg-hero-023-CI4vX0dX.glb";/**
+var yl=s=>{throw TypeError(s)};var C3=(s,e,t)=>e.has(s)||yl("Cannot "+t);var cr=(s,e,t)=>e.has(s)?yl("Cannot add the same private member more than once"):e instanceof WeakSet?e.add(s):e.set(s,t);var Te=(s,e,t)=>(C3(s,e,"access private method"),t);import{C as ta,A as S3}from"./index-FeL607kq.js";const w3="/gggame/v2/assets/gg-hero-002-FycmK-Wq.glb",b3="/gggame/v2/assets/gg-hero-007-BBb_nv6e.glb",T3="/gggame/v2/assets/gg-hero-012-DqUwgxGX.glb",B3="/gggame/v2/assets/gg-hero-023-CI4vX0dX.glb";/**
  * @license
  * Copyright 2010-2026 Three.js Authors
  * SPDX-License-Identifier: MIT

@@ -1,12 +1,12 @@
 {
   "repository": "https://gitee.com/LanFa/gg-game",
   "path": "web",
-  "commit": "f98c89a0408840ef57ca74340a07175eb3feb9e4",
+  "commit": "11a5d79c5098288acbbb25c9d88109ce5fa8b868",
   "version": "v2",
   "entry": "/projects/GGgame/v2",
   "assetBase": "/gggame/v2/",
   "roomEndpoint": "https://gggame-api.yuanyiyan.com",
-  "htmlSha256": "0eaf4e1ca945d05182bc2f8d2128dbc7c6af92fba4971da0d99a346e404c5d3e",
+  "htmlSha256": "179e27499e0a793533068fcdc86bc05911034f52a42f25ec6d4c7471cd7a9719",
   "files": [
     {
       "path": "assets/basis_transcoder-o4Hde_L7.js",
@@ -19,9 +19,9 @@
       "sha256": "6cf17dc889352c42e9acf8897107978d127005fe3386c36a0e3845e27967630a"
     },
     {
-      "path": "assets/courtyard-D8hXMdBV.js",
+      "path": "assets/courtyard-DbT77A-H.js",
       "bytes": 1167474,
-      "sha256": "d1dcd3e94f633bf201b3770b693c0728e50a2e15e050287beab9e1cef15ede51"
+      "sha256": "88007c1ed253ecf775ab6c9ce4ee3e50631e5cde91bad1ea19988f8288178931"
     },
     {
       "path": "assets/draco_decoder-C32yEggz.wasm",
@@ -109,9 +109,9 @@
       "sha256": "7314735da791a04dfb033e9690f5e292cb251ddb5e0d4074f3c5151b7c85b4ff"
     },
     {
-      "path": "assets/index-ByFAPJYn.js",
-      "bytes": 31527,
-      "sha256": "9f3f4bf527c0c9a408bf5b3c0dd9e58e240c771c1defc83c196511aecc8eec2a"
+      "path": "assets/index-FeL607kq.js",
+      "bytes": 33268,
+      "sha256": "7d093bbdd4ca05ca3ab6885b0c6b136e89704e9b7e5433b356d27e7d2e1bb9e9"
     },
     {
       "path": "assets/index-I1tfdcDh.css",
@@ -190,8 +190,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 10279,
-      "sha256": "0eaf4e1ca945d05182bc2f8d2128dbc7c6af92fba4971da0d99a346e404c5d3e"
+      "bytes": 10485,
+      "sha256": "179e27499e0a793533068fcdc86bc05911034f52a42f25ec6d4c7471cd7a9719"
     }
   ]
 }
