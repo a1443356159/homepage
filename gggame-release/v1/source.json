@@ -1,7 +1,7 @@
 {
   "repository": "https://gitee.com/LanFa/gg-game",
   "path": "web",
-  "commit": "f597ee7ab6f9407031765f35b5fe09ff5f34aaff",
+  "commit": "f695b01951325ac3bdf7a93925f38136df194338",
   "version": "v1",
   "entry": "/projects/GGgame/v1",
   "assetBase": "/gggame/v1/",
@@ -11,7 +11,7 @@
     "path": "games/gggame"
   },
   "roomEndpoint": "https://gggame-api.yuanyiyan.com",
-  "htmlSha256": "5c429541fd2611921420642bb9c68663d717bda4933659e40ba27b411e91a7f8",
+  "htmlSha256": "e28f27c338757928bd29fe91e04dbc19b486fb314a4967ed1ef38f7771e36a4c",
   "files": [
     {
       "path": "assets/basis_transcoder-o4Hde_L7.js",
@@ -24,9 +24,9 @@
       "sha256": "6cf17dc889352c42e9acf8897107978d127005fe3386c36a0e3845e27967630a"
     },
     {
-      "path": "assets/courtyard-CK0kVrZp.js",
-      "bytes": 607234,
-      "sha256": "aa4c4d0360fa8fe783642d92bd4494172d0ff61426fb0f21029e6560acc16349"
+      "path": "assets/courtyard-Sg1KoV-4.js",
+      "bytes": 608524,
+      "sha256": "42a0d4e625159b27c8d9912492e6c3b46674c40179118e58d003c4f8a01eb4e5"
     },
     {
       "path": "assets/draco_decoder-C32yEggz.wasm",
@@ -54,14 +54,14 @@
       "sha256": "8bb2952d2ba7d67e1414f8df819410cb0434a666be53f671fff75f68843d76f6"
     },
     {
-      "path": "assets/index-CqCoQXHL.js",
-      "bytes": 30219,
-      "sha256": "b376a5bf39e4379373bb366f1feff620f1bd5d6e48cec94605e6b0201f317a29"
+      "path": "assets/index-CYOIBMq9.css",
+      "bytes": 18370,
+      "sha256": "0c762f7cba59ab7fe7f64bcaf2472f59d511b640f81da10e1fe80df2929ae24c"
     },
     {
-      "path": "assets/index-DDD70QHg.css",
-      "bytes": 18289,
-      "sha256": "ea31dabc6c744dcac21f059f0e957b070cae337e6b58728b62ca9c6800525624"
+      "path": "assets/index-uLEXKKzU.js",
+      "bytes": 30950,
+      "sha256": "81ca84872ab6979bc33a8978ffc66d48cdb0f85eb7d4e3eab18f8b14e5cb2729"
     },
     {
       "path": "favicon.svg",
@@ -85,8 +85,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 10095,
-      "sha256": "5c429541fd2611921420642bb9c68663d717bda4933659e40ba27b411e91a7f8"
+      "bytes": 10180,
+      "sha256": "e28f27c338757928bd29fe91e04dbc19b486fb314a4967ed1ef38f7771e36a4c"
     }
   ]
 }

@@ -1,12 +1,12 @@
 {
   "repository": "https://gitee.com/LanFa/gg-game",
   "path": "web",
-  "commit": "2d7335e1027bcf5b1f4a6b4663f4d5b4df2373d3",
+  "commit": "0d4477139463e332d65c2e0a0f3e5e8ba6203e89",
   "version": "v2",
   "entry": "/projects/GGgame/v2",
   "assetBase": "/gggame/v2/",
   "roomEndpoint": "https://gggame-api.yuanyiyan.com",
-  "htmlSha256": "225002ecacaa93530b8f00a5399f6cef944134c7078ef469645532771b6d8bf5",
+  "htmlSha256": "54ace665d435c395241ad90587f1803760698f4b0a21b854b09ee322eee8b84c",
   "files": [
     {
       "path": "assets/basis_transcoder-o4Hde_L7.js",
@@ -19,9 +19,9 @@
       "sha256": "6cf17dc889352c42e9acf8897107978d127005fe3386c36a0e3845e27967630a"
     },
     {
-      "path": "assets/courtyard-BGKxeBad.js",
-      "bytes": 1166197,
-      "sha256": "d90f4fcac6614c0caacd36c0a9c760dd71d36f8051d8e21888e01d3afbc1ddb3"
+      "path": "assets/courtyard-O-Fuv_4y.js",
+      "bytes": 1167474,
+      "sha256": "fe490f68faf6f58f27cd17263e13a549f262edf3429c736e37b8c11c1329c506"
     },
     {
       "path": "assets/draco_decoder-C32yEggz.wasm",
@@ -109,14 +109,14 @@
       "sha256": "7314735da791a04dfb033e9690f5e292cb251ddb5e0d4074f3c5151b7c85b4ff"
     },
     {
-      "path": "assets/index-Bc-pFPPK.js",
-      "bytes": 30774,
-      "sha256": "c5206bc561249d84b6dea559a5c5ec7fd290c23caa85956adcaa7ef664c6ef7c"
+      "path": "assets/index-FUI_FZK7.js",
+      "bytes": 31506,
+      "sha256": "9d7bb71f7461f26c0d5f753fdef42363a04d0c720d7fe26736c16dd7b1b91184"
     },
     {
-      "path": "assets/index-BcZvWsIK.css",
-      "bytes": 18414,
-      "sha256": "d887386f67ac5c3d809a6f39b285c597bba38932e9cfaed2f43ee6c29dff587d"
+      "path": "assets/index-I1tfdcDh.css",
+      "bytes": 18495,
+      "sha256": "bf323a9e41b61601097fa43e1bdcb4d0b8877eba95234a67b80f24df8268de6b"
     },
     {
       "path": "assets/manifest.json",
@@ -190,8 +190,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 10194,
-      "sha256": "225002ecacaa93530b8f00a5399f6cef944134c7078ef469645532771b6d8bf5"
+      "bytes": 10279,
+      "sha256": "54ace665d435c395241ad90587f1803760698f4b0a21b854b09ee322eee8b84c"
     }
   ]
 }
