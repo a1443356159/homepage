@@ -1,12 +1,12 @@
 {
   "repository": "https://gitee.com/LanFa/gg-game",
   "path": "web",
-  "commit": "11a5d79c5098288acbbb25c9d88109ce5fa8b868",
+  "commit": "880a9c774229f151b8d8f3d952e5ab9ad043836f",
   "version": "v2",
   "entry": "/projects/GGgame/v2",
   "assetBase": "/gggame/v2/",
   "roomEndpoint": "https://gggame-api.yuanyiyan.com",
-  "htmlSha256": "179e27499e0a793533068fcdc86bc05911034f52a42f25ec6d4c7471cd7a9719",
+  "htmlSha256": "81e3295571f3a0a544995014839a3115e14dffa6462389e5591ad44540c44493",
   "files": [
     {
       "path": "assets/basis_transcoder-o4Hde_L7.js",
@@ -19,9 +19,9 @@
       "sha256": "6cf17dc889352c42e9acf8897107978d127005fe3386c36a0e3845e27967630a"
     },
     {
-      "path": "assets/courtyard-DbT77A-H.js",
+      "path": "assets/courtyard-BzqrIizf.js",
       "bytes": 1167474,
-      "sha256": "88007c1ed253ecf775ab6c9ce4ee3e50631e5cde91bad1ea19988f8288178931"
+      "sha256": "967f81a6b1c28fe1c10366223786e7f0722b4aa950d8d0936baaf058d65f6446"
     },
     {
       "path": "assets/draco_decoder-C32yEggz.wasm",
@@ -109,14 +109,14 @@
       "sha256": "7314735da791a04dfb033e9690f5e292cb251ddb5e0d4074f3c5151b7c85b4ff"
     },
     {
-      "path": "assets/index-FeL607kq.js",
-      "bytes": 33268,
-      "sha256": "7d093bbdd4ca05ca3ab6885b0c6b136e89704e9b7e5433b356d27e7d2e1bb9e9"
+      "path": "assets/index-_7CX5Yv9.css",
+      "bytes": 19270,
+      "sha256": "a0bc39fb78637c9582b6084685836de9cd5e2a663ce1099a6444cc2a785cb054"
     },
     {
-      "path": "assets/index-I1tfdcDh.css",
-      "bytes": 18495,
-      "sha256": "bf323a9e41b61601097fa43e1bdcb4d0b8877eba95234a67b80f24df8268de6b"
+      "path": "assets/index-Bhz5zJTb.js",
+      "bytes": 34194,
+      "sha256": "bdb32eca114f192710d1dc3f1dc54576eebada6a477841a0a628cfc3411ec137"
     },
     {
       "path": "assets/manifest.json",
@@ -190,8 +190,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 10485,
-      "sha256": "179e27499e0a793533068fcdc86bc05911034f52a42f25ec6d4c7471cd7a9719"
+      "bytes": 10707,
+      "sha256": "81e3295571f3a0a544995014839a3115e14dffa6462389e5591ad44540c44493"
     }
   ]
 }

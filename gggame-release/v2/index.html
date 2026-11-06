@@ -7,12 +7,12 @@
     <link rel="icon" href="/gggame/v2/favicon.svg" />
     <title>GGgame · 在线串门大乱斗</title>
 
-    <script type="module" crossorigin src="/gggame/v2/assets/index-FeL607kq.js"></script>
-    <link rel="stylesheet" crossorigin href="/gggame/v2/assets/index-I1tfdcDh.css">
+    <script type="module" crossorigin src="/gggame/v2/assets/index-Bhz5zJTb.js"></script>
+    <link rel="stylesheet" crossorigin href="/gggame/v2/assets/index-_7CX5Yv9.css">
   </head>
   <body>
     <main id="gggame" data-endpoint="https://gggame-api.yuanyiyan.com">
-      <header class="topbar"><a href="/gggame/v2/">GGgame · v2 角色版</a><div class="top-actions"><button id="leaderboard-open">排行榜</button><button id="sound-toggle" aria-pressed="true">音效：开</button><span id="connection">尚未连接</span></div></header>
+      <header class="topbar"><a href="/gggame/v2/">GGgame · v2 角色版</a><div class="top-actions"><button id="leaderboard-open">排行榜</button><button id="sound-toggle" aria-pressed="true">音效：开</button><span id="connection" role="status">尚未连接</span></div></header>
       <dialog id="leaderboard" aria-labelledby="leaderboard-title">
         <div class="section-title"><div><p class="eyebrow">NEIGHBORHOOD RECORDS</p><h2 id="leaderboard-title">街坊排行榜</h2></div><button id="leaderboard-close" aria-label="关闭排行榜">关闭</button></div>
         <p class="fine">按胜场排序，胜场相同则游玩次数少者在前 · 展示前 50 名</p>
@@ -57,12 +57,12 @@
           <div class="next-phase"><span id="reveal-countdown"></span><div class="countdown-track"><i id="reveal-progress"></i></div></div>
         </section>
         <div id="match" hidden>
-          <section class="panel phase-panel"><div><p id="round" class="eyebrow"></p><h2 id="phase-title"></h2><p id="phase-note" class="muted"></p></div><button id="rematch" class="primary" hidden>再来一局</button></section>
-          <div class="play-layout"><div><div class="section-title"><h2>街坊动态</h2><span>同一家里，才能交手</span></div><div id="players" class="player-grid"></div>
-            <section class="panel controls"><div class="section-title"><h2>我的行动</h2><span id="steps"></span></div><p id="self-status" class="muted"></p><div class="buttons"><button data-action="wear">穿裤子 <small>1s</small></button><button data-action="knife">拿刀 <small>1s</small></button></div>
+          <section class="panel phase-panel"><div><p id="round" class="eyebrow"></p><h2 id="phase-title"></h2><p id="phase-note" class="muted"></p><p id="match-summary" class="fine" hidden></p></div><button id="rematch" class="primary" hidden>再来一局</button></section>
+          <div class="play-layout"><div class="player-actions"><section class="street-status"><div class="section-title"><h2>街坊动态</h2><span>同一家里，才能交手</span></div><div id="players" class="player-grid"></div></section>
+            <section id="action-panel" class="panel controls" aria-labelledby="action-title" hidden><div class="section-title"><h2 id="action-title">我的行动</h2><span id="steps"></span></div><p id="idle-countdown" class="action-countdown" hidden></p><p id="self-status" class="muted"></p><div class="buttons"><button data-action="wear">穿裤子 <small>1s</small></button><button data-action="knife">拿刀 <small>1s</small></button></div>
               <div class="target-row"><label>去谁家<select id="destination"></select></label><button data-action="move">移动 <small>2s</small></button></div>
               <div class="target-row"><label>选择对手<select id="target"></select></label><button data-action="strip">脱裤子 <small>3s</small></button><button data-action="execute" class="danger">割 <small>3s</small></button></div>
-              <p id="queue" class="queue"></p><p id="idle-countdown" class="fine" hidden></p><p class="fine">每个行动消耗 1 步。忙碌时提交会排队。还有步数、没有执行或排队动作时，闲置 15 秒会丢弃剩余步数。</p>
+              <p id="queue" class="queue"></p><p class="fine action-help">每个行动消耗 1 步。忙碌时提交会排队。还有步数、没有执行或排队动作时，闲置 15 秒会丢弃剩余步数。</p>
             </section>
           </div><aside class="panel journal"><p class="eyebrow">LIVE JOURNAL</p><h2>发生了什么</h2><ol id="logs" aria-live="polite" aria-relevant="additions"></ol></aside></div>
         </div>
