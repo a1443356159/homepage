@@ -17,6 +17,7 @@ npm run preview    # preview the production build
 - `src/content/projects/` — project entries (markdown + frontmatter)
 - `src/content/publications/` — publication entries
 - `src/content/posts/` — blog posts
+- `src/content/journal/` — short, dated updates for `/blog/journal`
 
 Profile information, honors, projects, publications, and posts are maintained
 in the corresponding page or content files above.
@@ -53,6 +54,13 @@ articles and the complete note list remain readable without it. Search is perfor
 locally in the visitor's browser.
 
 Run `npm run build` to validate content before pushing to the deployment branch.
+
+## Recent journal
+
+Copy `src/content/journal/first-entry.md` to start a new entry. Give it a unique
+filename, update the `title` and `date`, and write the update in Markdown. Set
+`draft: false` when ready to publish. The journal shows full entries with the
+newest date first.
 
 ## GGgame 发布
 

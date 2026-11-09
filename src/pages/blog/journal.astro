@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const entries = (await getCollection('journal', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const renderedEntries = await Promise.all(entries.map(async (entry) => ({
+  entry,
+  ...(await render(entry)),
+})));
+const formatDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC',
+});
+---
+
+<BaseLayout title="Recent Journal — Yuanyi Yan" description="Short updates on what I’ve been working on, learning, and trying lately.">
+  <header class="border-b border-slate-200 pb-8">
+    <a href="/blog" class="text-sm text-indigo-600 hover:underline">&larr; Knowledge base</a>
+    <h1 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Recent journal</h1>
+    <p class="mt-4 max-w-xl leading-relaxed text-slate-600">Short updates on what I’ve been working on, learning, and trying lately.</p>
+  </header>
+
+  {renderedEntries.length > 0 ? (
+    <ol class="divide-y divide-slate-200" aria-label="Journal entries, newest first">
+      {renderedEntries.map(({ entry, Content }) => (
+        <li>
+          <article id={`entry-${entry.id}`} class="grid scroll-mt-6 gap-2 py-7 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-6">
+            <time class="text-sm font-medium text-slate-500 sm:pt-1" datetime={entry.data.date.toISOString()}>
+              {formatDate.format(entry.data.date)}
+            </time>
+            <div class="min-w-0">
+              <h2 class="text-xl font-semibold tracking-tight text-slate-900">
+                <a href={`#entry-${entry.id}`} class="hover:text-indigo-600">{entry.data.title}</a>
+              </h2>
+              <div class="prose-content">
+                <Content />
+              </div>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <p class="mt-8 text-sm text-slate-500">No journal entries yet.</p>
+  )}
+</BaseLayout>
