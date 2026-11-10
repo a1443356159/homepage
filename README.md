@@ -55,11 +55,11 @@ locally in the visitor's browser.
 
 Run `npm run build` to validate content before pushing to the deployment branch.
 
-## Recent journal
+## Diary
 
 Copy `src/content/journal/first-entry.md` to start a new entry. Give it a unique
 filename, update the `title` and `date`, and write the update in Markdown. Set
-`draft: false` when ready to publish. The journal shows full entries with the
+`draft: false` when ready to publish. The diary shows full entries with the
 newest date first.
 
 ## GGgame 发布

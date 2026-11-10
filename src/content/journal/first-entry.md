@@ -1,5 +1,5 @@
 ---
-title: "First journal entry"
+title: "First diary entry"
 date: 2026-11-09
 draft: true
 ---
