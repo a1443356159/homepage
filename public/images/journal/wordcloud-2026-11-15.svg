@@ -1,46 +1,28 @@
-<svg role="img" aria-labelledby="cloud-title cloud-desc" xmlns="http://www.w3.org/2000/svg" width="1000" height="520"><title id="cloud-title">A week in words: November 9–15, 2026</title><desc id="cloud-desc">Word sizes reflect frequency in diary prose from November 9–15, 2026. Most frequent words: theory (4), computation (4), playing (4), loop (3), sat (3), worked (3), cloud (3), diary (3), thermal (3), paste (3), update (2), requests (2). External posts, links, metadata, code and common stopwords are excluded.</desc>
-<style>text{font-family:'Droid Sans Mono';font-weight:normal;font-style:normal;}</style>
-<rect width="100%" height="100%" style="fill:#f8fafc"></rect>
-<text transform="translate(139,83)" font-size="90" style="fill:#1d4ed8">theory</text>
-<text transform="translate(293,481)" font-size="90" style="fill:#7e22ce">computation</text>
-<text transform="translate(104,213)" font-size="90" style="fill:#0f766e">playing</text>
-<text transform="translate(686,256)" font-size="79" style="fill:#1d4ed8">loop</text>
-<text transform="translate(182,345)" font-size="79" style="fill:#7e22ce">sat</text>
-<text transform="translate(596,188)" font-size="79" style="fill:#1d4ed8">worked</text>
-<text transform="translate(512,334)" font-size="79" style="fill:#3730a3">cloud</text>
-<text transform="translate(20,471)" font-size="79" style="fill:#1d4ed8">diary</text>
-<text transform="translate(623,113)" font-size="79" style="fill:#334155">thermal</text>
-<text transform="translate(756,343)" font-size="79" style="fill:#0f766e">paste</text>
-<text transform="translate(137,402)" font-size="66" style="fill:#7e22ce">update</text>
-<text transform="translate(412,396)" font-size="66" style="fill:#1d4ed8">requests</text>
-<text transform="translate(7,290)" font-size="66" style="fill:#334155">started</text>
-<text transform="translate(768,408)" font-size="53" style="fill:#334155">working</text>
-<text transform="translate(362,150)" font-size="53" style="fill:#0f766e">learned</text>
-<text transform="translate(559,246)" font-size="53" style="fill:#3730a3">edge</text>
-<text transform="translate(17,126)" font-size="49" style="fill:#0f766e">reviewing</text>
-<text transform="translate(808,45)" font-size="49" style="fill:#0f766e">work</text>
-<text transform="translate(333,307)" font-size="49" style="fill:#1d4ed8">league</text>
-<text transform="translate(466,41)" font-size="46" style="fill:#7e22ce">legends</text>
-<text transform="translate(514,513)" font-size="34" style="fill:#7e22ce">transformers</text>
-<text transform="translate(777,513)" font-size="34" style="fill:#7e22ce">inference</text>
-<text transform="translate(39,322)" font-size="34" style="fill:#3730a3">video</text>
-<text transform="translate(381,268)" font-size="34" style="fill:#0f766e">workflow</text>
-<text transform="translate(338,350)" font-size="34" style="fill:#1d4ed8">entries</text>
-<text transform="translate(23,400)" font-size="34" style="fill:#3730a3">asked</text>
-<text transform="translate(25,504)" font-size="34" style="fill:#334155">reviewed</text>
-<text transform="translate(455,91)" font-size="34" style="fill:#1d4ed8">studying</text>
-<text transform="translate(7,34)" font-size="34" style="fill:#0f766e">laptop</text>
-<text transform="translate(6,73)" font-size="34" style="fill:#334155">lagging</text>
-<text transform="translate(8,353)" font-size="29" style="fill:#7e22ce">throttling</text>
-<text transform="translate(320,509)" font-size="29" style="fill:#334155">cause</text>
-<text transform="translate(34,185)" font-size="29" style="fill:#334155">blg</text>
-<text transform="translate(905,275)" font-size="29" style="fill:#3730a3">best</text>
-<text transform="translate(416,420)" font-size="22" style="fill:#3730a3">tidying</text>
-<text transform="translate(478,195)" font-size="22" style="fill:#7e22ce">personal</text>
-<text transform="translate(930,181)" font-size="22" style="fill:#1d4ed8">site</text>
-<text transform="translate(251,25)" font-size="22" style="fill:#7e22ce">browse</text>
-<text transform="translate(904,216)" font-size="22" style="fill:#3730a3">blog</text>
-<text transform="translate(890,141)" font-size="22" style="fill:#7e22ce">topic</text>
-<text transform="translate(379,22)" font-size="22" style="fill:#0f766e">tag</text>
-<text transform="translate(876,243)" font-size="22" style="fill:#3730a3">search</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="760" viewBox="0 0 900 760" role="img" aria-labelledby="title desc">
+<title id="title">This week in words — November 9–15, 2026</title>
+<desc id="desc">Selected keywords from seven diary entries. Theory of Computation appears four times; loop, including looped, four; diary three; thermal paste, BLG, studying, inference, laptop, edge, video and League of Legends twice each; Flow Matching, Numerical Analysis and inspired once each. Phrase variants are combined and font sizes use frequency tiers with layout adjustments. Generic verbs, common words, metadata, code, links and external posts are excluded.</desc>
+<rect width="900" height="760" rx="28" fill="#f8f7f3"/>
+<rect x="30" y="30" width="840" height="700" rx="18" fill="none" stroke="#e2dfd6"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="64" y="80" font-size="17" letter-spacing="3" font-weight="700" fill="#52606c">THIS WEEK IN WORDS</text>
+<text x="836" y="80" text-anchor="end" font-size="17" fill="#52606c">09–15 NOV 2026</text>
+<path d="M64 104H836" stroke="#dedbd2"/>
+<text x="450" y="188" text-anchor="middle" font-size="66" font-weight="700" fill="#302b69" letter-spacing="-1">Theory of</text>
+<text x="450" y="279" text-anchor="middle" font-size="98" font-weight="800" fill="#302b69" letter-spacing="-1">Computation</text>
+<text x="244" y="390" text-anchor="middle" font-size="90" font-weight="750" fill="#5146ad" letter-spacing="-1">loop</text>
+<text x="607" y="386" text-anchor="middle" font-size="76" font-weight="700" fill="#5146ad" letter-spacing="-1">diary</text>
+<text x="263" y="463" text-anchor="middle" font-size="48" font-weight="650" fill="#526b7d" letter-spacing="-1">thermal paste</text>
+<text x="582" y="469" text-anchor="middle" font-size="56" font-weight="750" fill="#ae562e" letter-spacing="-1">BLG</text>
+<text x="180" y="531" text-anchor="middle" font-size="44" font-weight="600" fill="#526b7d" letter-spacing="-1">studying</text>
+<text x="447" y="532" text-anchor="middle" font-size="44" font-weight="600" fill="#526b7d" letter-spacing="-1">inference</text>
+<text x="690" y="531" text-anchor="middle" font-size="44" font-weight="600" fill="#526b7d" letter-spacing="-1">laptop</text>
+<text x="124" y="592" text-anchor="middle" font-size="36" font-weight="550" fill="#637180" letter-spacing="-1">edge</text>
+<text x="271" y="592" text-anchor="middle" font-size="36" font-weight="550" fill="#637180" letter-spacing="-1">video</text>
+<text x="577" y="592" text-anchor="middle" font-size="40" font-weight="600" fill="#ae562e" letter-spacing="-1">League of Legends</text>
+<text x="190" y="650" text-anchor="middle" font-size="27" font-weight="500" fill="#637180" letter-spacing="-1">Flow Matching</text>
+<text x="470" y="650" text-anchor="middle" font-size="27" font-weight="500" fill="#637180" letter-spacing="-1">Numerical Analysis</text>
+<text x="713" y="650" text-anchor="middle" font-size="27" font-weight="500" fill="#ae562e" letter-spacing="-1">inspired</text>
+<path d="M64 683H836" stroke="#dedbd2"/>
+<text x="64" y="710" font-size="15" fill="#52606c">7 DAYS · SELECTED DIARY KEYWORDS</text>
+<text x="836" y="710" text-anchor="end" font-size="15" fill="#52606c">More mentions, stronger emphasis.</text>
+</g></svg>
