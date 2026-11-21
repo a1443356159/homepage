@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import ComputeSlidePreview from '../../components/ComputeSlidePreview.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const entries = (await getCollection('journal', ({ data }) => !data.draft))
@@ -35,6 +36,7 @@ const formatDate = new Intl.DateTimeFormat('en-US', {
               <div class="prose-content">
                 <Content />
               </div>
+              {entry.id === '2026-11-20' && <ComputeSlidePreview />}
             </div>
           </article>
         </li>

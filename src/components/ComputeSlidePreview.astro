@@ -1,0 +1,88 @@
+---
+import slideTitles from '../lib/compute-slides.json';
+---
+
+<details class="slide-preview" data-compute-slides>
+  <summary>Preview slides <span class="slide-preview-count">61 slides</span></summary>
+  <div class="slide-preview-body" lang="en">
+    <div
+      class="slide-stage"
+      role="img"
+      aria-label="Computing Power: The Foundation of AI, slide 1"
+      tabindex="0"
+      data-slide-stage
+    ></div>
+    <p class="slide-caption" data-slide-status role="status"></p>
+    <div class="slide-controls" aria-label="Slide navigation" role="group">
+      <button type="button" data-previous disabled>← Previous</button>
+      <label class="slide-picker">
+        <span>Slide</span>
+        <select aria-label="Jump to slide" data-slide-select>
+          {slideTitles.map((title, i) => <option value={i} data-title={title}>{i + 1} / {slideTitles.length}</option>)}
+        </select>
+      </label>
+      <button type="button" data-next>Next →</button>
+    </div>
+    <noscript><p>Enable JavaScript for the inline preview, or use the PowerPoint download link above.</p></noscript>
+  </div>
+</details>
+
+<script>
+  for (const viewer of document.querySelectorAll<HTMLDetailsElement>('[data-compute-slides]')) {
+    const stage = viewer.querySelector<HTMLElement>('[data-slide-stage]');
+    const status = viewer.querySelector<HTMLElement>('[data-slide-status]');
+    const select = viewer.querySelector<HTMLSelectElement>('[data-slide-select]');
+    const previous = viewer.querySelector<HTMLButtonElement>('[data-previous]');
+    const next = viewer.querySelector<HTMLButtonElement>('[data-next]');
+    if (!stage || !status || !select || !previous || !next) continue;
+    const count = select.options.length;
+    let current = 0;
+    let loaded = false;
+
+    const show = (index: number) => {
+      current = Math.max(0, Math.min(index, count - 1));
+      const tile = current % 16;
+      const file = Math.floor(current / 16) + 1;
+      stage.style.backgroundImage = `url("/downloads/ai-compute-preview/slides-${file}.webp")`;
+      stage.style.backgroundPosition = `${(tile % 4) * 100 / 3}% ${Math.floor(tile / 4) * 100 / 3}%`;
+      const title = select.options[current]?.dataset.title ?? '';
+      const label = `Slide ${current + 1} of ${count}${title ? `: ${title}` : ''}`;
+      stage.setAttribute('aria-label', label);
+      status.textContent = label;
+      select.selectedIndex = current;
+      previous.disabled = current === 0;
+      next.disabled = current === count - 1;
+      loaded = true;
+    };
+    viewer.addEventListener('toggle', () => {
+      if (viewer.open && !loaded) show(current);
+    });
+    if (viewer.open) show(current);
+    previous.addEventListener('click', () => show(current - 1));
+    next.addEventListener('click', () => show(current + 1));
+    select.addEventListener('change', () => show(select.selectedIndex));
+    stage.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      show(current + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+  }
+</script>
+
+<style>
+  .slide-preview { margin-top: 1rem; border: 1px solid #e2e8f0; border-radius: .75rem; background: #f8fafc; color: #0f172a; overflow: clip; }
+  summary { cursor: pointer; padding: .875rem 1rem; font-weight: 600; }
+  summary::marker { color: #4f46e5; }
+  .slide-preview-count { margin-inline-start: .65rem; font-size: .8125rem; font-weight: 400; color: #475569; }
+  .slide-preview-body { padding: 0 .75rem .75rem; }
+  .slide-stage { aspect-ratio: 16 / 9; border-radius: .375rem; background-color: #102632; background-size: 400% 400%; background-repeat: no-repeat; }
+  .slide-caption { min-height: 1.4em; margin: .5rem 0; font-size: .8125rem; line-height: 1.4; color: #475569; overflow-wrap: anywhere; }
+  .slide-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .4rem; }
+  button, select { min-height: 2.75rem; padding: .3rem .55rem; border: 1px solid #cbd5e1; border-radius: .375rem; background: white; font-size: .875rem; }
+  button:not(:disabled) { cursor: pointer; }
+  button:not(:disabled):hover { border-color: #6366f1; color: #4338ca; }
+  button:disabled { color: #64748b; background: #f1f5f9; }
+  .slide-picker { display: flex; align-items: center; gap: .35rem; font-size: .875rem; }
+  :is(summary, button, select, .slide-stage):focus-visible { outline: 2px solid #4f46e5; outline-offset: -2px; }
+  @media (max-width: 380px) { .slide-picker span { display: none; } }
+</style>
